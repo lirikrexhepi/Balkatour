@@ -334,7 +334,7 @@ const nextTab = () => {
                 success: response => {
                     console.log(response);
                     if (response == "Registerd") {
-                        window.location.replace('./verificate.php');
+                        window.location.replace('./verify.php');
                     } else if (response == "Something went wrong") {
                         alert('Problems with server or internet');
                     }
