@@ -1,6 +1,6 @@
 <?php
 require '../config.php';
-require './emailData.php';
+require '../emailData.php';
 // PHP Mailer files
 require("./PHPMailer-master/src/Exception.php");
 require("./PHPMailer-master/src/PHPMailer.php");

@@ -93,11 +93,11 @@ if (isset($_POST['otpCode'])) {
                                 If you have any questions or need assistance, our support team is here to help. 
                                 Simply reply to this email or visit our support page.
                                 <br><br>
-                                Thank you for choosing online-appointment-booking.com. We look forward to serving you!
+                                Thank you for choosing Balkatour. We look forward to serving you!
                                 <br><br>
                                 Best regards,
                                 <br>
-                                online-appointment-booking.com
+                                balkatour.com
                                 </p>";
     
     
