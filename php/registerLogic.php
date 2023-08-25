@@ -280,8 +280,9 @@ if (isset($_POST['action']) && $_POST['action'] == 'insert') {
         $prep->bindParam(':verification_code', $veri_code);
         $prep->bindParam(':verified', $verified);
         $prep->execute();
+
+        $_SESSION['verify'] = $username;
         echo "Registerd";
-        
 
     } catch (Exception $e) {
         echo "Something went wrong";

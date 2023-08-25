@@ -113,3 +113,88 @@
     height: 15px;
     margin-top: 0 !important;
 }
+
+.mainVeriCode{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.veri_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #1BBC9B;
+    padding: 15px;
+    background-color: #1bbc9c68;
+    border-radius: 5px;
+}
+
+.veri_form > div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.veri_code{
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+    border: 2px solid #1BBC9B;
+    opacity: .7;
+    border-radius: 5px;
+}
+.veri_code:focus{
+    outline: none;
+    opacity: 1;
+}
+
+.verify{
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #1BBC9B;
+    border: 2px solid #1BBC9B;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+.verify:hover{
+    transition: .2s;
+    background-color: #1bbc9b80;
+    color: white;
+}
+.verify:active{
+    transition: none;
+    background-color: #1BBC9B;
+    border: 2px solid #1BBC9B; 
+    color: white;
+}
+
+.btnLoader{
+    width: 15px;
+    height: 15px;
+    border: 5px solid white;
+    border-radius: 50%;
+    border-top: 5px solid transparent;
+    animation: palidhje 1s linear infinite;
+    display: none;
+}
+
+@keyframes palidhje {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
