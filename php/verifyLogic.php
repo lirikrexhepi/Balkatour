@@ -20,7 +20,7 @@ if (isset($_POST['otpCode'])) {
 
     $sql = "SELECT * FROM users WHERE userType=1 AND username=:username";
     $prep = $con->prepare($sql);
-    $prep->bindParam(':username', $username);
+    $prep->bindParam(':username', $_SESSION['verify']);
     $prep->execute();
     $data = $prep->fetch(PDO::FETCH_ASSOC);
 
@@ -55,7 +55,7 @@ if (isset($_POST['otpCode'])) {
             $update_prep = $con->prepare($update_sql);
             $update_prep->bindParam(':verified', $verified);
             $update_prep->bindParam(':veri_code', $verified_code);
-            $update_prep->bindParam(':username', $username);
+            $update_prep->bindParam(':username', $_SESSION['verify']);
             $update_prep->execute();
 
 
@@ -104,10 +104,10 @@ if (isset($_POST['otpCode'])) {
                 $mail->send();
 
                 echo "verified";
-                unset($_SESSION['verify']);
             } catch(Exception $e){
                 echo "something went wrong";
             }
+            unset($_SESSION['verify']);
         }
     } else {
         echo "wrong code";

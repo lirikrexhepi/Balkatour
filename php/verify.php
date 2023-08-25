@@ -1,9 +1,9 @@
 <?php
 include '../config.php';
 
-// if (!isset($_SESSION['verify'])) {
-//     header("Location: register.php");
-// }
+if (!isset($_SESSION['verify'])) {
+    header("Location: register.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
