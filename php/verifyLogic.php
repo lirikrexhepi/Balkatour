@@ -104,6 +104,7 @@ if (isset($_POST['otpCode'])) {
                 $mail->send();
 
                 echo "verified";
+                unset($_SESSION['verify']);
             } catch(Exception $e){
                 echo "something went wrong";
             }

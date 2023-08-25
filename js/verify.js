@@ -53,7 +53,7 @@ const sendOtp = () => {
                     btnText.innerHTML = 'Verified';
                     setTimeout(() => {
                         window.location.replace('../index.html');
-                    }, 1000)
+                    }, 500)
                 } else if (response == 'something went wrong'){
                     btnLoader.style.display = 'none';
                     btnText.innerHTML = 'Something went wrong';
