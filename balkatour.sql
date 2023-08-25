@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 24, 2023 at 11:27 PM
+-- Generation Time: Aug 25, 2023 at 03:15 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -86,6 +86,14 @@ CREATE TABLE `users` (
   `verified` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `userType`, `fullName`, `gender`, `birthday`, `email`, `state`, `city`, `username`, `password`, `registered`, `verification_code`, `verified`) VALUES
+(10, 1, 'palidhje', 'Male', '2000-01-01', 'guesst2006@gmail.com', 1, 1, 'palidhje', '$2y$10$gAa1mOF0x.7o3MsWftn9a.I2EwkeMFEevzv9dOPNLqKgbgFQ.xLDC', '2023-08-25 15:04:33', 525767, 0),
+(11, 1, 'Leart Ramadani', 'Male', '2000-01-01', 'leart.ramadani06@gmail.com', 1, 1, 'leart', '$2y$10$nfkyPTP2FZ8Cp6dMz9.Weuz4uWhby6VXZNxntadLZSjDypW8y045C', '2023-08-25 15:06:41', 190476, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -157,7 +165,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `usertypes`
