@@ -38,8 +38,8 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
                 <div>
                     <select class="gender">
                         <option value="">Select gender</option>
-                        <option value="">Male</option>
-                        <option value="">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
                     </select>
                     <p class="genderError"></p>
                 </div>
@@ -76,13 +76,17 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
                 </div>
 
                 <div>
-                    <input type="password" class="password" placeholder="Password">
+                    <input type="password" class="password" placeholder="Password" id="pass">
                     <p class="passwordError"></p>
                 </div>
 
                 <div>
-                    <input type="password" class="confirm_pass" placeholder="Confirm password">
+                    <input type="password" class="confirm_pass" placeholder="Confirm password" id="confirmpass">
                     <p class="confirmPass_error"></p>
+                </div>
+                <div class="showPass_div">
+                    <label for="showPass">Show password</label>
+                    <input type="checkbox" id="showPass">
                 </div>
             </div>
 
@@ -98,6 +102,19 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
         </article>
     </main>
 
+    <script>
+        const passInput = document.getElementById('pass');
+        const confirmPassInput = document.getElementById('confirmpass');
+        const showPassCheckBox = document.getElementById('showPass');
+
+        const showPass = () => {
+            const passType = showPassCheckBox.checked ? 'text' : 'password';
+            passInput.type = passType;
+            confirmPassInput.type = passType;
+        };
+
+        showPassCheckBox.addEventListener('change', showPass);
+    </script>
 
 
 

@@ -97,3 +97,19 @@
         transform: rotate(360deg);
     }
 }
+
+.is-invalid{
+    border-color: red !important;
+}
+
+.showPass_div{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+}
+.showPass_div > input {
+    width: 15px;
+    height: 15px;
+    margin-top: 0 !important;
+}
