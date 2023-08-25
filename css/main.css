@@ -178,6 +178,12 @@
     border: 2px solid #1BBC9B; 
     color: white;
 }
+.verify:disabled{
+    background-color: #1BBC9B;
+    border: 2px solid #1BBC9B;
+    color: white;
+    opacity: .5;
+}
 
 .btnLoader{
     width: 15px;

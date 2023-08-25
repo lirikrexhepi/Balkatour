@@ -63,15 +63,19 @@ if (isset($_POST['action']) && $_POST['action'] == 'firstTab') {
         $birthdayErr = 'empty birthday';
     } else {
 
-        $birthdayDate = new DateTime($birthday);
+
+        // Define the two dates to compare
+        $dateOfBirth = new DateTime($birthday); // Replace this with the actual date of birth
         $currentDate = new DateTime();
 
-        $age = $currentDate->diff($birthdayDate)->y;
+        // Calculate the difference between the two dates
+        $interval = $currentDate->diff($dateOfBirth);
 
-        if ($age <= 18) {
-            $birthdayErr = 'young age';
-        } else {
+        // Check if the difference is at least 18 years
+        if ($interval->y > 18 || ($interval->y == 18 && $interval->m > 0) || ($interval->y == 18 && $interval->m == 0 && $interval->d >= 0)) {
             $birthdayErr = '';
+        } else {
+            $birthdayErr = 'young age';
         }
     }
 
@@ -283,7 +287,6 @@ if (isset($_POST['action']) && $_POST['action'] == 'insert') {
 
         $_SESSION['verify'] = $username;
         echo "Registerd";
-
     } catch (Exception $e) {
         echo "Something went wrong";
     }
