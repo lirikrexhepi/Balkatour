@@ -99,6 +99,9 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
                 <button class="prev_btn">Prev</button>
                 <button class="next_btn">Next</button>
             </div>
+            <div class="register-links">
+                <a href="../index.php">Already have an account?</a>
+            </div>
         </article>
     </main>
 
