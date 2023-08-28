@@ -315,7 +315,14 @@ body {
   /* width: max-content; */
 }
 
-.navbar-link:is(:hover, :focus) { border-color: var(--white-1); }
+.navbar-link {
+  transition: border-color 0.2s ease;
+}
+
+.navbar-link:hover,
+.navbar-link:focus {
+  border-color: var(--white-1);
+}
 
 
 
@@ -916,7 +923,11 @@ body {
 
   .nav-toggle-btn { display: none; }
 
-  .header,
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Make sure the header is above other content */
+  }
   .header.active { height: unset; }
 
   .navbar {
