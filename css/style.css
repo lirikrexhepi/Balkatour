@@ -1110,7 +1110,7 @@ body {
 
 
 /* --------------------------------------------- */
-/* Don't touch this */
+/* Register form*/
 /* --------------------------------------------- */
 .main_register {
   display: flex;
@@ -1171,7 +1171,8 @@ body {
 
 
 
-.tab p {
+.tab p,
+.dataError {
   color: red;
   margin: 5px;
 }
@@ -1359,5 +1360,11 @@ body {
   100% {
       transform: rotate(360deg);
   }
+}
+
+.popUpNotification{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /* ----------------------------------- */

@@ -68,6 +68,9 @@
     font-size: 14px;
     box-sizing: border-box;
   }
+  .popup-container .popup .popup-inner .popup-content ul li input:focus{
+    outline: none;
+  }
   .popup-container .popup .popup-inner .popup-content ul li button {
     width: 100%;
     line-height: 34px;

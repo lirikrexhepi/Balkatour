@@ -1,53 +1,45 @@
 <?php
     require "../config.php";
 
-    if(isset($_POST['submit']))
-    {
-        // Check if the keys exist in the $_POST array
-        if(isset($_POST['username']) && isset($_POST['password']))
-        {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
+    $userErr = $passErr = '';
+    if(isset($_POST['action']) && $_POST['action'] == 'login'){
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
-            if(empty($username) || empty($password))
-            {
-                echo "Please fill in your username and password";
-            }
-            else
-            {
-                $sql = "SELECT ID, username, fullname, password FROM users WHERE username=:username";
-                $selectUser = $con->prepare($sql);
-                $selectUser->bindParam(":username", $username);
-                $selectUser->execute();
+        $sql = "SELECT * FROM users WHERE userType=1 AND username=:username";
+        $prep = $con->prepare($sql);
+        $prep->bindParam(':username', $username);
+        $prep->execute();
+        
+        $data = $prep->fetch(PDO::FETCH_ASSOC);
 
-                $data = $selectUser->fetch();
+        if(!$data){
+            $userErr = 'username error';
+        } else{
+            $userErr = '';
 
-                if($data == false)
-                {
-                    echo "Username <b>$username</b> doesn't exist";
-                }
-                else
-                {
-                    if(password_verify($password, $data['password']))
-                    {
-                        // Start the session before using session variables
-                        session_start();
-                        
-                        $_SESSION['username'] = $data['username'];
-                        $_SESSION['fullname'] = $data['fullname'];
-                        header('Location: ../index.html');
-                        exit; // Make sure to exit after redirecting
-                    }
-                    else
-                    {
-                        echo "Password doesn't match";
-                    }
+            if(!password_verify($password, $data['password'])){
+                $passErr = 'pass error';
+            } else{
+                $passErr = '';
+                if(!$data['verified']){
+                    $_SESSION['verify'] = $username;
+                    $userErr = 'account not verified';
+                } else{
+                    $_SESSION['user'] = $username;
+                    $userErr = '';
                 }
             }
         }
-        else
-        {
-            echo "Username and password keys are not set in the form submission.";
+
+        
+        $response = [$userErr, $passErr];
+        
+        if($userErr == '' && $passErr == ''){
+            $response = [$userErr, $passErr, 'logged'];
+        } else{
+            $response = [$userErr, $passErr];
         }
+
+        echo json_encode($response);
     }
-?>
