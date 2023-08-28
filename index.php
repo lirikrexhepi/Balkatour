@@ -88,7 +88,7 @@
                     <li>
                       <button class="login" type="button">Log in</button>
                     </li>
-                    <center><a href="./php/register.php">No account?</a></center>
+                    <center><a href="./php/register.php">You don't have an account?</a></center>
                     
                     <center><a href="#">Forgot Password</a></center>
                   </ul>
@@ -96,64 +96,7 @@
               </div>
             </div>
           </div>
-        </div> 
-        <div class="popup-container">
-          <label class="navbar-link" for="register-popup">Register</label>
-          <input type="checkbox" id="register-popup">
-          <div class="popup">
-            <label for="register-popup" class="transparent-label"></label>
-            <div class="popup-inner">
-              <div class="popup-title">
-                <h6>Register</h6>
-                <label for="register-popup" class="popup-close-btn">Close</label>
-              </div>
-              <div class="popup-content">
-                <form action="">
-                  <ul>
-                    <li>
-                      <input type="text" placeholder="Full Name">
-                    </li>
-                    <li>
-                      <input type="date" placeholder="Birthday" >
-                    </li>
-                    <li>
-                      <select>
-                        <option value="" disabled selected>Gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-
-                      </select>
-                    </li>
-                    <li>
-                      <input type="email" placeholder="Email" >
-                    </li>
-                    <li>
-                      <input type="text" placeholder="State" >
-                    </li>
-                    <li>
-                      <input type="text" placeholder="City" >
-                    </li>
-                    <li>
-                      <input type="text" placeholder="Username" >
-                    </li>
-                    <li>
-                      <input type="password" placeholder="Password" >
-                    </li>
-                    <li>
-                      <input type="password" placeholder="Confirm Password">
-                    </li>
-                    <li>
-                      <button type="submit">Register</button>
-                    </li>
-                    <center><a href="#">Already have an account?</a></center>
-                  </ul>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-
+        </div>         
       </nav>
 
     </div>
