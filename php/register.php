@@ -100,7 +100,7 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
                 <button class="next_btn">Next</button>
             </div>
             <div class="register-links">
-                <a href="../index.html">Already have an account?</a>
+                <a href="../index.php">Already have an account?</a>
             </div>
         </article>
     </main>
