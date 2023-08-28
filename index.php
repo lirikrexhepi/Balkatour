@@ -1,3 +1,6 @@
+<?php 
+  require './config.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,16 +75,18 @@
                 <label for="login-popup" class="popup-close-btn">Close</label>
               </div>
               <div class="popup-content">
-                <form action="">
+                <form>
                   <ul>
                     <li>
-                      <input type="text" placeholder="Username">
+                      <input type="text" placeholder="Username" class="username">
+                      <p class="usernameError dataError"></p>
                     </li>
                     <li>
-                      <input type="password" placeholder="Password">
+                      <input type="password" placeholder="Password" class="password">
+                      <p class="passwordError dataError"></p>
                     </li>
                     <li>
-                      <button type="submit">Log in</button>
+                      <button class="login" type="button">Log in</button>
                     </li>
                     <center><a href="./php/register.php">No account?</a></center>
                     
@@ -718,6 +723,9 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <!-- JQuery link -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="./js/login.js"></script>
 
 </body>
 

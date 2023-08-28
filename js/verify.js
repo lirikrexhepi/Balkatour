@@ -52,7 +52,7 @@ const sendOtp = () => {
                     btnLoader.style.display = 'none';
                     btnText.innerHTML = 'Verified';
                     setTimeout(() => {
-                        window.location.replace('../index.html');
+                        window.location.replace('../index.php');
                     }, 500)
                 } else if (response == 'something went wrong'){
                     btnLoader.style.display = 'none';

@@ -12,7 +12,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-$username = $_POST['verify'];
+$username = $_SESSION['verify'];
 
 $sql = "SELECT * FROM users WHERE userType=1 AND username=:username";
 $prep = $con->prepare($sql);
