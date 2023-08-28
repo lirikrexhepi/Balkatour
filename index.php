@@ -1,3 +1,6 @@
+<?php 
+  require './config.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,18 +75,20 @@
                 <label for="login-popup" class="popup-close-btn">Close</label>
               </div>
               <div class="popup-content">
-                <form action="">
+                <form>
                   <ul>
                     <li>
-                      <input type="text" placeholder="Username">
+                      <input type="text" placeholder="Username" class="username">
+                      <p class="usernameError dataError"></p>
                     </li>
                     <li>
-                      <input type="password" placeholder="Password">
+                      <input type="password" placeholder="Password" class="password">
+                      <p class="passwordError dataError"></p>
                     </li>
                     <li>
-                      <button type="submit">Log in</button>
+                      <button class="login" type="button">Log in</button>
                     </li>
-                    <center><a href="#">No account?</a></center>
+                    <center><a href="./php/register.php">You don't have an account?</a></center>
                     
                     <center><a href="#">Forgot Password</a></center>
                   </ul>
@@ -91,64 +96,7 @@
               </div>
             </div>
           </div>
-        </div> 
-        <div class="popup-container">
-          <label class="navbar-link" for="register-popup">Register</label>
-          <input type="checkbox" id="register-popup">
-          <div class="popup">
-            <label for="register-popup" class="transparent-label"></label>
-            <div class="popup-inner">
-              <div class="popup-title">
-                <h6>Register</h6>
-                <label for="register-popup" class="popup-close-btn">Close</label>
-              </div>
-              <div class="popup-content">
-                <form action="">
-                  <ul>
-                    <li>
-                      <input type="text" placeholder="Full Name" required>
-                    </li>
-                    <li>
-                      <input type="date" placeholder="Birthday" required>
-                    </li>
-                    <li>
-                      <select>
-                        <option value="" disabled selected>Gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-
-                      </select>
-                    </li>
-                    <li>
-                      <input type="email" placeholder="Email" required>
-                    </li>
-                    <li>
-                      <input type="text" placeholder="State" required>
-                    </li>
-                    <li>
-                      <input type="text" placeholder="City" required>
-                    </li>
-                    <li>
-                      <input type="text" placeholder="Username" required>
-                    </li>
-                    <li>
-                      <input type="password" placeholder="Password" required>
-                    </li>
-                    <li>
-                      <input type="password" placeholder="Confirm Password"required>
-                    </li>
-                    <li>
-                      <button type="submit">Register</button>
-                    </li>
-                    <center><a href="#">Already have an account?</a></center>
-                  </ul>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-
+        </div>         
       </nav>
 
     </div>
@@ -718,6 +666,9 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <!-- JQuery link -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="./js/login.js"></script>
 
 </body>
 

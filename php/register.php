@@ -15,7 +15,7 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Register</title>
 </head>
 
@@ -25,8 +25,8 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
         <article>
             <h1 class="register_h1">Create an account</h1>
             <div class="tab">
-                <div>
-                    <input type="text" placeholder="Full name" class="fullName">
+                <div class="">
+                    <input type="text" class="fullName" id="fullName" placeholder="Full name">
                     <p class="nameError"></p>
                 </div>
 
@@ -37,7 +37,7 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
 
                 <div>
                     <select class="gender">
-                        <option value="">Select gender</option>
+                        <option value="" disabled selected>Select gender</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
