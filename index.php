@@ -78,11 +78,11 @@
                 <form>
                   <ul>
                     <li>
-                      <input type="text" placeholder="Username" class="username">
+                      <input type="text" placeholder="Username" class="username input">
                       <p class="usernameError dataError"></p>
                     </li>
                     <li>
-                      <input type="password" placeholder="Password" class="password">
+                      <input type="password" placeholder="Password" class="password input">
                       <p class="passwordError dataError"></p>
                     </li>
                     <li>

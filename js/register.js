@@ -355,5 +355,15 @@ const prevTab = () => {
     showTab(tabNumber);
 }
 
+const inputs = document.querySelectorAll('.input');
+
+inputs.forEach(input => {
+    input.addEventListener('keyup', e => {
+        if (e.key === 'Enter') {
+            nextTab();
+        }
+    });
+});
+
 nextBtn.addEventListener('click', nextTab);
 prevBtn.addEventListener('click', prevTab);

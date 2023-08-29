@@ -77,4 +77,14 @@ const logIn = () =>{
     }
 }
 
+const inputs = document.querySelectorAll('.input');
+
+inputs.forEach(input => {
+    input.addEventListener('keyup', e => {
+        if (e.key === 'Enter') {
+            logIn();
+        }
+    });
+});
+
 login_btn.addEventListener('click', logIn);
