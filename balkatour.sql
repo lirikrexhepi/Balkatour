@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 25, 2023 at 03:19 PM
+-- Generation Time: Aug 29, 2023 at 04:23 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -20,6 +20,21 @@ SET time_zone = "+00:00";
 --
 -- Database: `balkatour`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `booking`
+--
+
+CREATE TABLE `booking` (
+  `booking_id` bigint(20) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `hotel_id` bigint(20) NOT NULL,
+  `check_in_date` date NOT NULL,
+  `check_out_date` int(11) NOT NULL,
+  ` status` enum('booked','cancelled','completed') DEFAULT 'booked'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -44,6 +59,76 @@ INSERT INTO `city` (`id`, `state`, `city`) VALUES
 (4, 1, 'Podujeve'),
 (9, 2, 'Tirane'),
 (10, 2, 'Shkoder');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `destination`
+--
+
+CREATE TABLE `destination` (
+  `destination_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `state` int(11) NOT NULL,
+  `city` int(11) NOT NULL,
+  `description` text DEFAULT NULL,
+  `image_id` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hotel`
+--
+
+CREATE TABLE `hotel` (
+  `hotel_id` bigint(20) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `state` int(11) NOT NULL,
+  `city` int(11) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `location` varchar(100) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `place_offers_id` bigint(20) NOT NULL,
+  `image_id` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `images`
+--
+
+CREATE TABLE `images` (
+  `image_id` bigint(20) NOT NULL,
+  `image_1` varchar(255) DEFAULT NULL,
+  `image_2` varchar(255) DEFAULT NULL,
+  `image_3` varchar(255) DEFAULT NULL,
+  `image_4` varchar(255) DEFAULT NULL,
+  `image_5` varchar(255) DEFAULT NULL,
+  `image_6` varchar(255) DEFAULT NULL,
+  `image_7` varchar(255) DEFAULT NULL,
+  `image_8` varchar(255) DEFAULT NULL,
+  `image_9` varchar(255) DEFAULT NULL,
+  `image_10` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `place_offers`
+--
+
+CREATE TABLE `place_offers` (
+  `place_offers_id` bigint(20) NOT NULL,
+  `wifi` tinyint(1) NOT NULL,
+  `parking` tinyint(1) NOT NULL,
+  `heating` tinyint(1) NOT NULL,
+  `tv` tinyint(1) NOT NULL,
+  `lightning_proof` tinyint(1) NOT NULL,
+  `printer` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -91,8 +176,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `userType`, `fullName`, `gender`, `birthday`, `email`, `state`, `city`, `username`, `password`, `registered`, `verification_code`, `verified`) VALUES
-(10, 1, 'palidhje', 'Male', '2000-01-01', 'guesst2006@gmail.com', 1, 1, 'palidhje', '$2y$10$gAa1mOF0x.7o3MsWftn9a.I2EwkeMFEevzv9dOPNLqKgbgFQ.xLDC', '2023-08-25 15:04:33', 525767, 0),
-(11, 1, 'Leart Ramadani', 'Male', '2000-01-01', 'leart.ramadani06@gmail.com', 1, 1, 'leart', '$2y$10$nfkyPTP2FZ8Cp6dMz9.Weuz4uWhby6VXZNxntadLZSjDypW8y045C', '2023-08-25 15:06:41', 190476, 0);
+(11, 1, 'Leart Ramadani', 'Male', '2000-01-01', 'leart.ramadani06@gmail.com', 1, 1, 'leart', '$2y$10$nfkyPTP2FZ8Cp6dMz9.Weuz4uWhby6VXZNxntadLZSjDypW8y045C', '2023-08-28 22:51:54', 0, 1),
+(16, 1, 'Guesst guesst', 'Female', '2000-01-01', 'guesst2006@gmail.com', 1, 3, 'guesst', '$2y$10$3e3m..wV3P5yYxf36EmPRel1E4smJVIPl89DA1sDHY6ErsifpY/wK', '2023-08-28 19:15:43', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -118,11 +203,52 @@ INSERT INTO `usertypes` (`id`, `type`) VALUES
 --
 
 --
+-- Indexes for table `booking`
+--
+ALTER TABLE `booking`
+  ADD PRIMARY KEY (`booking_id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `hotel_id` (`hotel_id`);
+
+--
 -- Indexes for table `city`
 --
 ALTER TABLE `city`
   ADD PRIMARY KEY (`id`),
   ADD KEY `state` (`state`);
+
+--
+-- Indexes for table `destination`
+--
+ALTER TABLE `destination`
+  ADD PRIMARY KEY (`destination_id`),
+  ADD KEY `image_id` (`image_id`),
+  ADD KEY `state` (`state`),
+  ADD KEY `city` (`city`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `hotel`
+--
+ALTER TABLE `hotel`
+  ADD PRIMARY KEY (`hotel_id`),
+  ADD KEY `image_id` (`image_id`),
+  ADD KEY `state` (`state`),
+  ADD KEY `city` (`city`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `place_offers_id` (`place_offers_id`);
+
+--
+-- Indexes for table `images`
+--
+ALTER TABLE `images`
+  ADD PRIMARY KEY (`image_id`);
+
+--
+-- Indexes for table `place_offers`
+--
+ALTER TABLE `place_offers`
+  ADD PRIMARY KEY (`place_offers_id`);
 
 --
 -- Indexes for table `states`
@@ -150,10 +276,34 @@ ALTER TABLE `usertypes`
 --
 
 --
+-- AUTO_INCREMENT for table `booking`
+--
+ALTER TABLE `booking`
+  MODIFY `booking_id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `city`
 --
 ALTER TABLE `city`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `destination`
+--
+ALTER TABLE `destination`
+  MODIFY `destination_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `hotel`
+--
+ALTER TABLE `hotel`
+  MODIFY `hotel_id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `images`
+--
+ALTER TABLE `images`
+  MODIFY `image_id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `states`
@@ -165,7 +315,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `usertypes`
@@ -178,10 +328,36 @@ ALTER TABLE `usertypes`
 --
 
 --
+-- Constraints for table `booking`
+--
+ALTER TABLE `booking`
+  ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`hotel_id`) REFERENCES `hotel` (`hotel_id`);
+
+--
 -- Constraints for table `city`
 --
 ALTER TABLE `city`
   ADD CONSTRAINT `city_ibfk_1` FOREIGN KEY (`state`) REFERENCES `states` (`id`);
+
+--
+-- Constraints for table `destination`
+--
+ALTER TABLE `destination`
+  ADD CONSTRAINT `destination_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `images` (`image_id`),
+  ADD CONSTRAINT `destination_ibfk_2` FOREIGN KEY (`state`) REFERENCES `states` (`id`),
+  ADD CONSTRAINT `destination_ibfk_3` FOREIGN KEY (`city`) REFERENCES `city` (`id`),
+  ADD CONSTRAINT `destination_ibfk_4` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `hotel`
+--
+ALTER TABLE `hotel`
+  ADD CONSTRAINT `hotel_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `images` (`image_id`),
+  ADD CONSTRAINT `hotel_ibfk_2` FOREIGN KEY (`state`) REFERENCES `states` (`id`),
+  ADD CONSTRAINT `hotel_ibfk_3` FOREIGN KEY (`city`) REFERENCES `city` (`id`),
+  ADD CONSTRAINT `hotel_ibfk_4` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `hotel_ibfk_5` FOREIGN KEY (`place_offers_id`) REFERENCES `place_offers` (`place_offers_id`);
 
 --
 -- Constraints for table `users`
