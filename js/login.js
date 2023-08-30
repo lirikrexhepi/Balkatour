@@ -4,7 +4,7 @@ const userErr = document.querySelector('.usernameError');
 const passErr = document.querySelector('.passwordError');
 const login_btn = document.querySelector('.login');
 const popupContainer = document.querySelector('.popup-inner');
-
+let url = '';
 const logIn = () =>{
     if(username.value.length == 0 && password.value.length == 0){
         userErr.innerText = '*Username required';
@@ -33,9 +33,13 @@ const logIn = () =>{
             username.classList.remove('is-invalid');
             password.classList.remove('is-invalid');
 
-
+            if (window.location.href == 'http://localhost/Balkatour/php/addHouse.php') {
+                url = '../php/loginLogic.php';
+            } else {
+                url = './php/loginLogic.php';
+            }
             $.ajax({
-                url: './php/loginLogic.php',
+                url: url,
                 type: 'POST',
                 data: {
                     action: 'login',

@@ -74,7 +74,7 @@ if (isset($_POST['logout'])) {
                 <ion-icon name="caret-down-outline"></ion-icon>
               </a>
               <div class="dropdown-content">
-                <a href="#">Add a hosue</a>
+                <a href="./php/addHouse.php">Add a hosue</a>
                 <a href="rent.php">House</a>
                 <a href="#">Motel</a>
                 <a href="#">Apartament</a>

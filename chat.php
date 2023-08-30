@@ -25,73 +25,115 @@
       </button>
     
       <nav class="navbar">
+
         <ul class="navbar-list">
+
           <li>
             <a href="index.php" class="navbar-link">Home</a>
           </li>
-          
+
           <li>
             <a href="#" class="navbar-link">About Us</a>
-              <!-- <select name="" id="" class="navbar-link">
+            <!-- <select name="" id="" class="navbar-link">
               <option value="">Our Team</option>
-              </select> -->
+            </select> -->
           </li>
-          
+
+
           <li>
-            <a href="#" class="navbar-link">Tours</a>
+            <div class="dropdown">
+              <button class="dropbtn">Travel
+                <ion-icon name="caret-down-outline"></ion-icon>
+              </button>
+              <div class="dropdown-content">
+                <a href="#">Tours</a>
+                <a href="#">Packages</a>
+                <a href="#">Shop</a>
+              </div>
+            </div>
           </li>
-    
-          <li>
-            <a href="#" class="navbar-link">Shop</a>
-          </li>
-    
-          <li>
-            <a href="#" class="navbar-link">Transport</a>
-          </li>
-        
+
           <li>
             <a href="chat.html" class="navbar-link">Chat</a>
           </li>
+
+          <li>
+            <div class="dropdown">
+              <a class="dropbtn">Rent
+                <ion-icon name="caret-down-outline"></ion-icon>
+              </a>
+              <div class="dropdown-content">
+                <a href="./php/addHouse.php">Add a hosue</a>
+                <a href="rent.php">House</a>
+                <a href="#">Motel</a>
+                <a href="#">Apartament</a>
+              </div>
+            </div>
+          </li>
+
+
         </ul>
-    
+
         <div class="popup-container" style="margin-right: 5%;">
-          <label class="navbar-link" for="login-popup">Login</label>
-          <input type="checkbox" id="login-popup">
-          
-          <div class="popup">
-            <label for="login-popup" class="transparent-label"></label>
+          <?php
+          if (!isset($_SESSION['user'])) {
+          ?>
+            <label class="navbar-link" for="login-popup">Login</label>
+            <input type="checkbox" id="login-popup">
+            <div class="popup">
+              <label for="login-popup" class="transparent-label"></label>
               <div class="popup-inner">
                 <div class="popup-title">
                   <h6>Login</h6>
                   <label for="login-popup" class="popup-close-btn">Close</label>
                 </div>
-                
                 <div class="popup-content">
                   <form>
                     <ul>
                       <li>
-                        <input type="text" placeholder="Username" class="username">
+                        <input type="text" placeholder="Username" class="username input">
                         <p class="usernameError dataError"></p>
                       </li>
-                      
                       <li>
-                        <input type="password" placeholder="Password" class="password">
+                        <input type="password" placeholder="Password" class="password input">
                         <p class="passwordError dataError"></p>
                       </li>
-                      
                       <li>
                         <button class="login" type="button">Log in</button>
                       </li>
                       <center><a href="./php/register.php">You don't have an account?</a></center>
+
                       <center><a href="#">Forgot Password</a></center>
                     </ul>
                   </form>
                 </div>
               </div>
             </div>
-          </div>         
-        </nav>
-      </div>
+
+          <?php } else {  ?>
+            <label class="navbar-link" for="login-popup"><?php echo $_SESSION['user']; ?></label>
+            <input type="checkbox" id="login-popup">
+            <div class="popup">
+              <label for="login-popup" class="transparent-label"></label>
+              <div class="popup-inner">
+                <div class="popup-title">
+                  <h6>Profile:<?= $_SESSION['user']; ?></h6>
+                  <label for="login-popup" class="popup-close-btn">Close</label>
+                </div>
+                <div class="popup-content">
+                  <form action="" method="POST">
+                    <ul>
+                      <li>
+                        <button type="submit" name="logout" class="login">Log out</button>
+                      </li>
+                    </ul>
+                  </form>
+                </div>
+              </div>
+            <?php } ?>
+            </div>
+        </div>
+      </nav>
     </header>
 
     <div class="page-banner bg-image" style="height:350px;background-image: url(./assets/images/banner.jpg);">
