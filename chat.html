@@ -140,33 +140,33 @@
       
       <div class="team-card">
         <center><img src="./assets/images/faces/face1.jpg" alt="Person 1"></center>
-        <h2>Vesa Susuri</h2>
+        <h2>Leart Ramadani</h2>
         <p>Kosova</p>
-        <center><button style="width: auto; background-color: #1BBC9B; padding: 10px 20px; color: white; border-radius: 5px; margin-top: 10px;">Click Here To Chat</button></center>
+        <center><button id="chat" style="width: auto; background-color: #1BBC9B; padding: 10px 20px; color: white; border-radius: 5px; margin-top: 10px;">Click Here To Chat</button></center>
       </div>
       <div class="team-card">
         <center><img src="./assets/images/faces/face2.jpg" alt="Person 2"></center>
-        <h2>Vesa Susuri</h2>
+        <h2>Gjin Prelvukaj</h2>
         <p>Bosnia</p>
-        <center><button style="width: auto; background-color: #1BBC9B; padding: 10px 20px; color: white; border-radius: 5px; margin-top: 10px;">Click Here To Chat</button></center>
+        <center><button id="chat" style="width: auto; background-color: #1BBC9B; padding: 10px 20px; color: white; border-radius: 5px; margin-top: 10px;">Click Here To Chat</button></center>
       </div>
       <div class="team-card">
         <center><img src="./assets/images/faces/face3.jpg" alt="Person 3"></center>
         <h2>Vesa Susuri</h2>
         <p>Bulgaria</p>
-        <center><button style="width: auto; background-color: #1BBC9B; padding: 10px 20px; color: white; border-radius: 5px; margin-top: 10px;">Click Here To Chat</button></center>
+        <center><button id="chat" style="width: auto; background-color: #1BBC9B; padding: 10px 20px; color: white; border-radius: 5px; margin-top: 10px;">Click Here To Chat</button></center>
       </div>
       <div class="team-card">
         <center><img src="./assets/images/faces/face4.jpg" alt="Person 3"></center>
         <h2>Vesa Susuri</h2>
         <p>Bulgaria</p>
-        <center><button style="width: auto; background-color: #1BBC9B; padding: 10px 20px; color: white; border-radius: 5px; margin-top: 10px;">Click Here To Chat</button></center>
+        <center><button id="chat" style="width: auto; background-color: #1BBC9B; padding: 10px 20px; color: white; border-radius: 5px; margin-top: 10px;">Click Here To Chat</button></center>
       </div>
       <div class="team-card">
         <center><img src="./assets/images/faces/face5.jpg" alt="Person 3"></center>
         <h2>Vesa Susuri</h2>
         <p>Bulgaria</p>
-        <center><button style="width: auto; background-color: #1BBC9B; padding: 10px 20px; color: white; border-radius: 5px; margin-top: 10px;">Click Here To Chat</button></center>
+        <center><button id="chat" style="width: auto; background-color: #1BBC9B; padding: 10px 20px; color: white; border-radius: 5px; margin-top: 10px;">Click Here To Chat</button></center>
       </div>
     </div>
      <!-- <script>
@@ -181,6 +181,17 @@
           if (d.head) d.head.appendChild(s);
       })(document, window, 'BrevoConversations');
   </script> -->
+
+  <script>
+(function(t,a,l,k,j,s){
+s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)
+;k=t.Promise;t.Talk={v:3,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l
+.push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);
+
+
+</script>
+
+
 
   <br><br><br>
   <footer class="footer" style="background-image: url('./assets/images/footer-bg.png')">
@@ -349,14 +360,12 @@
     <ion-icon name="chevron-up-outline"></ion-icon>
   </a>
   <script src="./js/script.js"></script>
-
-  <!-- 
-    - ionicon link
-  -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <!-- JQuery link -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="./js/login.js"></script>
+  <script src="./js/chat.js"></script>
+
 </body>
 </html>
