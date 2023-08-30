@@ -26,12 +26,12 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
             <h1 class="register_h1">Create an account</h1>
             <div class="tab">
                 <div class="">
-                    <input type="text" class="fullName" id="fullName" placeholder="Full name">
+                    <input type="text" class="fullName input" id="fullName" placeholder="Full name">
                     <p class="nameError"></p>
                 </div>
 
                 <div>
-                    <input type="date" placeholder="Birthday" class="birthday">
+                    <input type="date" placeholder="Birthday" class="birthday input">
                     <p class="birthdayError"></p>
                 </div>
 
@@ -47,7 +47,7 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
 
             <div class="tab">
                 <div>
-                    <input type="email" placeholder="Email" class="email">
+                    <input type="email" placeholder="Email" class="email input">
                     <p class="emailError"></p>
                 </div>
 
@@ -71,17 +71,17 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
 
             <div class="tab">
                 <div>
-                    <input type="text" class="username" placeholder="Username">
+                    <input type="text" class="username input" placeholder="Username">
                     <p class="usernameError"></p>
                 </div>
 
                 <div>
-                    <input type="password" class="password" placeholder="Password" id="pass">
+                    <input type="password" class="password input" placeholder="Password" id="pass">
                     <p class="passwordError"></p>
                 </div>
 
                 <div>
-                    <input type="password" class="confirm_pass" placeholder="Confirm password" id="confirmpass">
+                    <input type="password" class="confirm_pass input" placeholder="Confirm password" id="confirmpass">
                     <p class="confirmPass_error"></p>
                 </div>
                 <div class="showPass_div">
