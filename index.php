@@ -1,6 +1,6 @@
-<?php 
+<!-- <?php 
   require './config.php';
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +36,7 @@
         <ul class="navbar-list">
 
           <li>
-            <a href="#" class="navbar-link">Home</a>
+            <a href="index.php" class="navbar-link">Home</a>
           </li>
 
           <li>
@@ -59,7 +59,7 @@
           </li>
 
           <li>
-            <a href="#" class="navbar-link">Chat</a>
+            <a href="chat.html" class="navbar-link">Chat</a>
           </li>
 
         </ul>
@@ -347,21 +347,21 @@
 
                 <figure class="card-banner">
                   <a href="#">
-                    <img src="./assets/images/popular-1.jpg" width="740" height="518" loading="lazy"
+                    <img src="./assets/images/croatia2.jpg" width="740" height="518" loading="lazy"
                       alt="Kuala Lumpur, Malaysia" class="img-cover">
                   </a>
 
                   <span class="card-badge">
                     <ion-icon name="time-outline"></ion-icon>
 
-                    <time datetime="P12D">12 Days</time>
+                    <time datetime="P12D">7 Days</time>
                   </span>
                 </figure>
 
                 <div class="card-content">
 
                   <div class="card-wrapper">
-                    <div class="card-price">From $50.00</div>
+                    <div class="card-price">From 350.00€</div>
 
                     <div class="card-rating">
                       <ion-icon name="star"></ion-icon>
@@ -375,10 +375,10 @@
                   </div>
 
                   <h3 class="card-title">
-                    <a href="#">A good traveler has no fixed plans and is not intent on arriving.</a>
+                    <a href="#">A trip to Croatia's beaches is all you need to experience in this lifetime.</a>
                   </h3>
 
-                  <address class="card-location">Kuala Lumpur, Malaysia</address>
+                  <address class="card-location">Zlatni Rat, Brač</address>
 
                 </div>
 
@@ -390,42 +390,35 @@
 
                 <figure class="card-banner">
                   <a href="#">
-                    <img src="./assets/images/popular-2.jpg" width="740" height="518" loading="lazy"
+                    <img src="./assets/images/kruje.jpg" width="740" height="518" loading="lazy"
                       alt="Kuala Lumpur, Malaysia" class="img-cover">
                   </a>
 
                   <span class="card-badge">
                     <ion-icon name="time-outline"></ion-icon>
 
-                    <time datetime="P12D">12 Days</time>
+                    <time datetime="P12D">6 Days</time>
                   </span>
                 </figure>
 
                 <div class="card-content">
-
                   <div class="card-wrapper">
-                    <div class="card-price">From $50.00</div>
-
-                    <div class="card-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star-outline"></ion-icon>
-
-                      <data value="2">(2)</data>
-                    </div>
+                    <div class="card-price">From 150.00€</div>
+                      <div class="card-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                        <data value="3">(3)</data>
+                      </div>
+                    </div>  
+                    <h3 class="card-title">
+                      <a href="#">Learn more about Albania's culture by visiting historical places. </a>
+                    </h3>
+                    <address class="card-location">Kruje, Albania</address>
                   </div>
-
-                  <h3 class="card-title">
-                    <a href="#">A good traveler has no fixed plans and is not intent on arriving.</a>
-                  </h3>
-
-                  <address class="card-location">Kuala Lumpur, Malaysia</address>
-
                 </div>
-
-              </div>
             </li>
 
             <li>
@@ -433,7 +426,7 @@
 
                 <figure class="card-banner">
                   <a href="#">
-                    <img src="./assets/images/popular-3.jpg" width="740" height="518" loading="lazy"
+                    <img src="./assets/images/bulgaria.jpg" width="740" height="518" loading="lazy"
                       alt="Kuala Lumpur, Malaysia" class="img-cover">
                   </a>
 
@@ -447,7 +440,7 @@
                 <div class="card-content">
 
                   <div class="card-wrapper">
-                    <div class="card-price">From $50.00</div>
+                    <div class="card-price">From 450.00€</div>
 
                     <div class="card-rating">
                       <ion-icon name="star"></ion-icon>
@@ -456,7 +449,7 @@
                       <ion-icon name="star"></ion-icon>
                       <ion-icon name="star-outline"></ion-icon>
 
-                      <data value="2">(2)</data>
+                      <data value="2">(7)</data>
                     </div>
                   </div>
 
@@ -464,13 +457,12 @@
                     <a href="#">A good traveler has no fixed plans and is not intent on arriving.</a>
                   </h3>
 
-                  <address class="card-location">Kuala Lumpur, Malaysia</address>
+                  <address class="card-location">Sozopol, Bulgaria</address>
 
                 </div>
 
               </div>
             </li>
-
           </ul>
 
         </div>
