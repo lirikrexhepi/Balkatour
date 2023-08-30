@@ -1,6 +1,6 @@
-<!-- <?php 
+<?php 
   require './config.php';
-?> -->
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,6 +60,9 @@
 
           <li>
             <a href="chat.html" class="navbar-link">Chat</a>
+          </li>
+          <li>
+            <a href="rent.html" class="navbar-link">Rent</a>
           </li>
 
         </ul>
@@ -469,15 +472,7 @@
       </section>
     </article>
   </main>
-
-
-
-
-
-  <!-- 
-    - #FOOTER
-  -->
-
+  <!--  - #FOOTER  -->
   <footer class="footer" style="background-image: url('./assets/images/footer-bg.png')">
     <div class="container">
 
