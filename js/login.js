@@ -68,7 +68,8 @@ const logIn = () =>{
                                 window.location.replace('./php/verify.php');
                             }, 1000)
                         } else if(error == 'logged'){
-                            window.location.replace('./index.php');
+                            let currentURL = window.location.href;
+                            window.location.replace(currentURL);
                         }
                     });
                 }

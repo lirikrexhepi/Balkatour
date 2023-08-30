@@ -1,6 +1,10 @@
-<!-- <?php 
-  require './config.php';
-?> -->
+<?php
+require './config.php';
+
+if (isset($_POST['logout'])) {
+  unset($_SESSION['user']);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,24 +50,38 @@
             </select> -->
           </li>
 
-          <li>
-            <a href="#" class="navbar-link">Tours</a>
-          </li>
 
           <li>
-            <a href="#" class="navbar-link">Shop</a>
-          </li>
-
-          <li>
-            <a href="#" class="navbar-link">Transport</a>
+            <div class="dropdown">
+              <button class="dropbtn">Travel
+                <ion-icon name="caret-down-outline"></ion-icon>
+              </button>
+              <div class="dropdown-content">
+                <a href="#">Tours</a>
+                <a href="#">Packages</a>
+                <a href="#">Shop</a>
+              </div>
+            </div>
           </li>
 
           <li>
             <a href="chat.html" class="navbar-link">Chat</a>
           </li>
+
           <li>
-            <a href="rent.html" class="navbar-link">Rent</a>
+            <div class="dropdown">
+              <a class="dropbtn">Rent
+                <ion-icon name="caret-down-outline"></ion-icon>
+              </a>
+              <div class="dropdown-content">
+                <a href="#">Add a hosue</a>
+                <a href="rent.php">House</a>
+                <a href="#">Motel</a>
+                <a href="#">Apartament</a>
+              </div>
+            </div>
           </li>
+
 
         </ul>
 
@@ -123,7 +141,8 @@
                   </form>
                 </div>
               </div>
-          <?php } ?>
+            <?php } ?>
+            </div>
         </div>
       </nav>
 
