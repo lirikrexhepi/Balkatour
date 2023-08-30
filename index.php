@@ -1,6 +1,10 @@
-<!-- <?php 
-  require './config.php';
-?> -->
+<?php
+require './config.php';
+
+if(isset($_POST['logout'])){
+  unset($_SESSION['user']);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +18,7 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Comforter+Brush&family=Heebo:wght@400;500;600;700&display=swap"rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Comforter+Brush&family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body id="top">
@@ -65,38 +69,63 @@
         </ul>
 
         <div class="popup-container" style="margin-right: 5%;">
-          <label class="navbar-link" for="login-popup">Login</label>
-          <input type="checkbox" id="login-popup">
-          <div class="popup">
-            <label for="login-popup" class="transparent-label"></label>
-            <div class="popup-inner">
-              <div class="popup-title">
-                <h6>Login</h6>
-                <label for="login-popup" class="popup-close-btn">Close</label>
-              </div>
-              <div class="popup-content">
-                <form>
-                  <ul>
-                    <li>
-                      <input type="text" placeholder="Username" class="username input">
-                      <p class="usernameError dataError"></p>
-                    </li>
-                    <li>
-                      <input type="password" placeholder="Password" class="password input">
-                      <p class="passwordError dataError"></p>
-                    </li>
-                    <li>
-                      <button class="login" type="button">Log in</button>
-                    </li>
-                    <center><a href="./php/register.php">You don't have an account?</a></center>
-                    
-                    <center><a href="#">Forgot Password</a></center>
-                  </ul>
-                </form>
+          <?php
+          if (!isset($_SESSION['user'])) {
+          ?>
+            <label class="navbar-link" for="login-popup">Login</label>
+            <input type="checkbox" id="login-popup">
+            <div class="popup">
+              <label for="login-popup" class="transparent-label"></label>
+              <div class="popup-inner">
+                <div class="popup-title">
+                  <h6>Login</h6>
+                  <label for="login-popup" class="popup-close-btn">Close</label>
+                </div>
+                <div class="popup-content">
+                  <form>
+                    <ul>
+                      <li>
+                        <input type="text" placeholder="Username" class="username input">
+                        <p class="usernameError dataError"></p>
+                      </li>
+                      <li>
+                        <input type="password" placeholder="Password" class="password input">
+                        <p class="passwordError dataError"></p>
+                      </li>
+                      <li>
+                        <button class="login" type="button">Log in</button>
+                      </li>
+                      <center><a href="./php/register.php">You don't have an account?</a></center>
+
+                      <center><a href="#">Forgot Password</a></center>
+                    </ul>
+                  </form>
+                </div>
               </div>
             </div>
-          </div>
-        </div>         
+
+          <?php } else {  ?>
+            <label class="navbar-link" for="login-popup"><?php echo $_SESSION['user']; ?></label>
+            <input type="checkbox" id="login-popup">
+            <div class="popup">
+              <label for="login-popup" class="transparent-label"></label>
+              <div class="popup-inner">
+                <div class="popup-title">
+                  <h6>Profile:<?= $_SESSION['user']; ?></h6>
+                  <label for="login-popup" class="popup-close-btn">Close</label>
+                </div>
+                <div class="popup-content">
+                  <form action="" method="POST">
+                    <ul>
+                      <li>
+                        <button type="submit" name="logout" class="login">Log out</button>
+                      </li>
+                    </ul>
+                  </form>
+                </div>
+              </div>
+          <?php } ?>
+        </div>
       </nav>
 
     </div>
@@ -104,8 +133,7 @@
 
   <main>
     <article>
-      <section class="section hero"
-        style="background-image: url('./assets/images/hero-bg-bottom.png') url('./assets/images/hero-bg-top.png')">
+      <section class="section hero" style="background-image: url('./assets/images/hero-bg-bottom.png') url('./assets/images/hero-bg-top.png')">
         <div class="container">
 
           <img src="./assets/images/shape-1.png" width="61" height="61" alt="Vector Shape" class="shape shape-1">
@@ -133,8 +161,7 @@
           </div>
 
           <figure class="hero-banner">
-            <img src="./assets/images/hero-banner.png" width="686" height="812" loading="lazy" alt="hero banner"
-              class="w-100">
+            <img src="./assets/images/hero-banner.png" width="686" height="812" loading="lazy" alt="hero banner" class="w-100">
           </figure>
 
         </div>
@@ -155,8 +182,7 @@
               <a href="#" class="destination-card">
 
                 <figure class="card-banner">
-                  <img src="./assets/images/croatia.jpeg" width="1140" height="1100" loading="lazy"
-                    alt="Malé, Maldives" class="img-cover">
+                  <img src="./assets/images/croatia.jpeg" width="1140" height="1100" loading="lazy" alt="Malé, Maldives" class="img-cover">
                 </figure>
 
                 <div class="card-content">
@@ -172,8 +198,7 @@
               <a href="#" class="destination-card">
 
                 <figure class="card-banner">
-                  <img src="./assets/images/kosovo.jpg" width="1140" height="1100" loading="lazy"
-                    alt="Bangkok, Thailand" class="img-cover">
+                  <img src="./assets/images/kosovo.jpg" width="1140" height="1100" loading="lazy" alt="Bangkok, Thailand" class="img-cover">
                 </figure>
 
                 <div class="card-content">
@@ -189,8 +214,7 @@
               <a href="#" class="destination-card">
 
                 <figure class="card-banner">
-                  <img src="./assets/images/montenegro.jpg" width="1110" height="480" loading="lazy"
-                    alt="Kuala Lumpur, Malaysia" class="img-cover">
+                  <img src="./assets/images/montenegro.jpg" width="1110" height="480" loading="lazy" alt="Kuala Lumpur, Malaysia" class="img-cover">
                 </figure>
 
                 <div class="card-content">
@@ -206,8 +230,7 @@
               <a href="#" class="destination-card">
 
                 <figure class="card-banner">
-                  <img src="./assets/images/greece.jpg" width="1110" height="480" loading="lazy"
-                    alt="Kathmandu, Nepal" class="img-cover">
+                  <img src="./assets/images/greece.jpg" width="1110" height="480" loading="lazy" alt="Kathmandu, Nepal" class="img-cover">
                 </figure>
 
                 <div class="card-content">
@@ -223,8 +246,7 @@
               <a href="#" class="destination-card">
 
                 <figure class="card-banner">
-                  <img src="./assets/images/albania.jpeg" width="1110" height="480" loading="lazy"
-                    alt="Jakarta, Indonesia" class="img-cover">
+                  <img src="./assets/images/albania.jpeg" width="1110" height="480" loading="lazy" alt="Jakarta, Indonesia" class="img-cover">
                 </figure>
 
                 <div class="card-content">
@@ -241,7 +263,7 @@
         </div>
       </section>
       <!-- End Destination Section -->
-      
+
       <!-- About us start -->
       <section class="section about">
         <div class="container">
@@ -317,20 +339,22 @@
 
       <!-- About Us end -->
 
-         <!-- Banner with data -->
+      <!-- Banner with data -->
 
-         <div class="banner3-background" alt="banner">
-          <div class="top-circle-image">
-            <p class="p-banner4 animate__animated animate__zoomIn">Why BALKATOUR is the best platform for traveling?</p> 
-            <center><p class="p-banner04 animate__animated animate__zoomIn">The pourpes of this platform is to help tourist feel safe while visiting a new country, shop handmade pieces by locals, view where the bus is from your location etc. </p></center>
-            <div class="div-circle-image">
-              <img src="./assets/images/100.png" class="circle-image animate__animated animate__zoomIn">
-              <img src="./assets/images/20.1.png" class="circle-image animate__animated animate__zoomIn">
-              <img src="./assets/images/20.2.png" class="circle-image animate__animated animate__zoomIn">
-              <img src="./assets/images/40.png" class="circle-image animate__animated animate__zoomIn">
-            </div>
+      <div class="banner3-background" alt="banner">
+        <div class="top-circle-image">
+          <p class="p-banner4 animate__animated animate__zoomIn">Why BALKATOUR is the best platform for traveling?</p>
+          <center>
+            <p class="p-banner04 animate__animated animate__zoomIn">The pourpes of this platform is to help tourist feel safe while visiting a new country, shop handmade pieces by locals, view where the bus is from your location etc. </p>
+          </center>
+          <div class="div-circle-image">
+            <img src="./assets/images/100.png" class="circle-image animate__animated animate__zoomIn">
+            <img src="./assets/images/20.1.png" class="circle-image animate__animated animate__zoomIn">
+            <img src="./assets/images/20.2.png" class="circle-image animate__animated animate__zoomIn">
+            <img src="./assets/images/40.png" class="circle-image animate__animated animate__zoomIn">
           </div>
         </div>
+      </div>
       <!-- end of banner with data -->
       <!-- Tours -->
       <section class="section popular">
@@ -347,8 +371,7 @@
 
                 <figure class="card-banner">
                   <a href="#">
-                    <img src="./assets/images/croatia2.jpg" width="740" height="518" loading="lazy"
-                      alt="Kuala Lumpur, Malaysia" class="img-cover">
+                    <img src="./assets/images/croatia2.jpg" width="740" height="518" loading="lazy" alt="Kuala Lumpur, Malaysia" class="img-cover">
                   </a>
 
                   <span class="card-badge">
@@ -390,8 +413,7 @@
 
                 <figure class="card-banner">
                   <a href="#">
-                    <img src="./assets/images/kruje.jpg" width="740" height="518" loading="lazy"
-                      alt="Kuala Lumpur, Malaysia" class="img-cover">
+                    <img src="./assets/images/kruje.jpg" width="740" height="518" loading="lazy" alt="Kuala Lumpur, Malaysia" class="img-cover">
                   </a>
 
                   <span class="card-badge">
@@ -404,21 +426,21 @@
                 <div class="card-content">
                   <div class="card-wrapper">
                     <div class="card-price">From 150.00€</div>
-                      <div class="card-rating">
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star-outline"></ion-icon>
-                        <data value="3">(3)</data>
-                      </div>
-                    </div>  
-                    <h3 class="card-title">
-                      <a href="#">Learn more about Albania's culture by visiting historical places. </a>
-                    </h3>
-                    <address class="card-location">Kruje, Albania</address>
+                    <div class="card-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+                      <data value="3">(3)</data>
+                    </div>
                   </div>
+                  <h3 class="card-title">
+                    <a href="#">Learn more about Albania's culture by visiting historical places. </a>
+                  </h3>
+                  <address class="card-location">Kruje, Albania</address>
                 </div>
+              </div>
             </li>
 
             <li>
@@ -426,8 +448,7 @@
 
                 <figure class="card-banner">
                   <a href="#">
-                    <img src="./assets/images/bulgaria.jpg" width="740" height="518" loading="lazy"
-                      alt="Kuala Lumpur, Malaysia" class="img-cover">
+                    <img src="./assets/images/bulgaria.jpg" width="740" height="518" loading="lazy" alt="Kuala Lumpur, Malaysia" class="img-cover">
                   </a>
 
                   <span class="card-badge">
