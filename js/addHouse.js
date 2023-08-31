@@ -66,7 +66,7 @@ bedDec.addEventListener('click', () => {
 
 
 
-let tabNumber = 0;
+let tabNumber = 2;
 
 const showTab = n => {
     buildings[n].classList.remove('hidden');
@@ -77,9 +77,6 @@ const showTab = n => {
         backStepBtn.classList.remove('hidden');
     }
 
-    if(n == buildings.length - 1){
-        window.location.reload();
-    }
 }
 
 showTab(tabNumber);
