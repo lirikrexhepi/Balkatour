@@ -1041,7 +1041,7 @@ body {
   text-align: center;
 }
 
-.tab :is(input, select) {
+/* .tab :is(input, select) {
   width: 300px;
   height: 50px;
   border: 1px solid #1BBC9B;
@@ -1055,11 +1055,11 @@ body {
   border-color: #1BBC9B;
   outline: 0; 
   box-shadow: 0 0 0 0.4rem rgb(37 207 172 / 25%);
-}
+} */
 
 
 
-.tab p,
+/* .tab p,
 .dataError {
   color: red;
   margin: 5px;
@@ -1070,6 +1070,10 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  display: none;
+} */
+
+.showTab{
   display: none;
 }
 
