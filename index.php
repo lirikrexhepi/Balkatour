@@ -65,7 +65,7 @@ if (isset($_POST['logout'])) {
           </li>
 
           <li>
-            <a href="chat.html" class="navbar-link">Chat</a>
+            <a href="chat.php" class="navbar-link">Chat</a>
           </li>
 
           <li>
