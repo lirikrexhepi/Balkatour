@@ -15,17 +15,20 @@ require '../config.php';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Comforter+Brush&family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+    <!-- Tailwind library -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rippleui@1.12.1/dist/css/styles.css" />
+	<script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body style="height: 100%;">
 
     <div class="buildingWrapper">
+        <!-- if user is not signed in -->
         <?php if (!isset($_SESSION['user'])) { ?>
             <h1>You need to sign in to host a building for rent!</h1>
             <div class="popup-container notSigned" style="margin-right: 5%;">
-            <label class=" loginAddHouse" for="login-popup">Login</label>
-                    <input type="checkbox" id="login-popup">
+                <label class=" loginAddHouse" for="login-popup">Login</label>
+                <input type="checkbox" id="login-popup">
                 <div class="popup">
                     <label for="login-popup" class="transparent-label"></label>
                     <div class="popup-inner">
@@ -55,28 +58,67 @@ require '../config.php';
                         </div>
                     </div>
                 </div>
+                <!-- if its signed in -->
             <?php } else {  ?>
-                <h1>Choose the type of the building that you want to host!</h1>
-                <div class="buildingTypeWrapper">
-                    <div class="buildings">
-                        <div class="house buildingType" data-building-type="house">
-                            <ion-icon name="home-outline"></ion-icon>
-                            <p>House</p>
+
+                <div class="buildingTab hidden">
+                    <h1 class="text-4xl">Choose the type of the building that you want to host!</h1>
+                    <div class="buildingTypeWrapper">
+                        <div class="buildings">
+                            <div class="house buildingType" data-building-type="house">
+                                <ion-icon name="home-outline"></ion-icon>
+                                <p>House</p>
+                            </div>
+                            <div class="apartament buildingType" data-building-type="apartament">
+                                <i class="fa-regular fa-building"></i>
+                                <p>Apartament</p>
+                            </div>
+                            <div class="hotel buildingType" data-building-type="hotel">
+                                <i class="fa-solid fa-hotel"></i>
+                                <p>Hotel</p>
+                            </div>
                         </div>
-                        <div class="apartament buildingType" data-building-type="apartament">
-                            <i class="fa-regular fa-building"></i>
-                            <p>Apartament</p>
-                        </div>
-                        <div class="hotel buildingType" data-building-type="hotel">
-                            <i class="fa-solid fa-hotel"></i>
-                            <p>Hotel</p>
-                        </div>
-                    </div>
-                    <div class="buildingType-action">
-                        <button type="button" class="nextStep">Next</button>
                     </div>
                 </div>
+
+                <div class="buildingTab hidden">
+                    <h1 class="text-4xl">Fill the information!</h1>
+                    <div class="hosueInfo">
+                        <div class="rooms">
+                            <div class="roomIcon">
+                                <i class="fa-solid fa-door-closed"></i>
+                                <label for="">Rooms</label>
+                            </div>
+                            <div class="roomsAction">
+                                <button type="button" class="decrementNum">-</button>
+                                <input type="number" value="0" class="roomsInp" readonly>
+                                <button type="button" class="incrementNum">+</button>
+                            </div>
+                        </div>
+                        <div class="rooms">
+                            <div class="roomIcon">
+                                <i class="fa-solid fa-bed"></i>
+                                <label for="">Beds</label>
+                            </div>
+                            <div class="roomsAction">
+                                <button type="button" class="bedDec">-</button>
+                                <input type="number" value="0" class="bedInp" readonly>
+                                <button type="button" class="bedInc">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="buildingTab hidden"></div>
+                <div class="buildingType-action">
+                    <button type="button" class="backStep">Go back</button>
+                    <button type="button" class="nextStep">Next</button>
+                </div>
             </div>
+
+
+
+
+
         <?php } ?>
 
 

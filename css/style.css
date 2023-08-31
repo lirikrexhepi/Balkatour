@@ -1361,10 +1361,17 @@ body {
   height: 100%;
 }
 
-.buildingWrapper > h1{
+.buildingWrapper > .buildingTab > h1{
   color: var(--viridian-green);
   font-family: var(--ff-heebo);
   margin-block: 20px;
+}
+
+.buildingTab{
+  width: 535px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .buildingTypeWrapper{
@@ -1379,7 +1386,10 @@ body {
 .buildings{
   display: flex;
   gap: 15px;
+  justify-content: center;
+  width: 100%;
 }
+
 .buildingType{
   width: 150px;
   height: 150px;
@@ -1427,6 +1437,8 @@ body {
 .buildingType-action{
   display: flex;
   justify-content: end;
+  gap: 10px;
+  margin-top: 20px;
 }
 .buildingType-action > button{
   font-size: 18px;
@@ -1489,4 +1501,87 @@ body {
   cursor: pointer;
   font-size: 18px;
   border-radius: 5px;
+}
+
+
+.rooms{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid var(--viridian-green);
+  width: 400px;
+  height: 120px;
+  padding: 15px;
+  border-radius: 5px;
+}
+.roomIcon {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.rooms > div > i {
+  font-size: 50px;
+  color: var(--viridian-green);
+}
+.rooms > div > label {
+  font-size: 22px;
+  color: var(--viridian-green);
+}
+
+.roomsAction{
+  display: flex;
+  justify-content: center;
+  gap: 0;
+}
+
+.roomsAction > button {
+  width: 40px;
+  height: 40px;
+  background-color: var(--viridian-green);
+  color: white;
+  font-size: 20px;
+}
+
+.roomsAction > button:hover{
+  opacity: .7;
+}
+
+.decrementNum,
+.bedDec{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.incrementNum,
+.bedInc{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+
+.roomsAction > input {
+  border-top: 2px solid var(--viridian-green);
+  border-bottom: 2px solid var(--viridian-green);
+  color: var(--viridian-green);
+  padding: 5px;
+  width: 50px;
+  height: 40px;
+  text-align: center;
+
+}
+
+
+.rooms > div > input::-webkit-outer-spin-button,
+.rooms > div > input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.rooms > div > input:focus{
+  outline: none;
+}
+
+.hosueInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
