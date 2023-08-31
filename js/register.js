@@ -12,7 +12,6 @@ state.addEventListener('change', () => {
             },
             success: response => {
                 response = JSON.parse(response);
-
                 city_select.innerHTML = "<option value=''>Select city</option>";
 
                 response.forEach(city => {
@@ -29,17 +28,26 @@ state.addEventListener('change', () => {
     }
 });
 
-
-
-const tabs = document.querySelectorAll('.tab');
+const stepsIcon = document.querySelector('.steps-icons');
+const steps = document.querySelectorAll('.step');
+const tabs = document.querySelectorAll('.showTab');
 const nextBtn = document.querySelector('.next_btn');
 const prevBtn = document.querySelector('.prev_btn');
+const register_btns = document.querySelector('.register_btns');
 const register_h1 = document.querySelector('.register_h1');
+const existingUser = document.querySelector('.existingUser');
+const signingUp = document.querySelector('.signingUp');
+const wait = document.querySelector('.wait');
+
 
 tabNumber = 0;
 
+
+
 const showTab = n => {
-    tabs[n].style.display = 'flex';
+    tabs[n].classList.add('active-tab');
+
+    steps[n].classList.add('step-done');
 
     if (n == 0) {
         prevBtn.style.display = 'none';
@@ -56,9 +64,11 @@ const showTab = n => {
     }
 
     if (n == (tabs.length - 1)) {
-        nextBtn.style.display = 'none';
-        prevBtn.style.display = 'none';
-        register_h1.innerHTML = 'Please wait...';
+        stepsIcon.classList.add('hidden');
+        register_btns.classList.add('hidden');
+        signingUp.innerHTML = 'Signing up';
+        wait.innerHTML = 'Please wait...';
+        existingUser.classList.add('hidden');
     }
 }
 
@@ -108,43 +118,48 @@ const validate = () => {
                         if(error == 'empty name'){
                             nameValid = false;
                             nameError.innerHTML = '*Full name is required';
-                            fullName.classList.add('is-invalid');
+                            nameError.classList.add('text-rose-500');
+                            fullName.classList.add('border-rose-500');
                         } else if(error == 'invalid name'){
                             nameValid = false;
                             nameError.innerHTML = '*This name is invalid';
-                            fullName.classList.add('is-invalid');
+                            nameError.classList.add('text-rose-500')
+                            fullName.classList.add('border-rose-500');
                         }
 
                         // Check the birthday input
                         if(error == 'empty birthday'){
                             birthdayValid = false;
                             birthdayError.innerHTML = '*Birthday is requierd';
-                            birthday.classList.add('is-invalid');
+                            birthdayError.classList.add('text-rose-500');
+                            birthday.classList.add('border-rose-500');
                         } else if(error == 'young age') {
                             birthdayValid = false;
                             birthdayError.innerHTML = '*You have to be older than 18 years old';
-                            birthday.classList.add('is-invalid');
+                            birthdayError.classList.add('text-rose-500');
+                            birthday.classList.add('border-rose-500');
                         }
 
                         // Check the gender input
                         if(error == 'empty gender'){
                             genderValid = false;
                             genderError.innerHTML = '*Gender is required';
-                            gender.classList.add('is-invalid');
+                            genderError.classList.add('text-rose-500');
+                            gender.classList.add('border-rose-500');
                         }
                     });
 
                     if(nameValid){
                         nameError.innerHTML = '';
-                        fullName.classList.remove('is-invalid');
+                        fullName.classList.remove('border-rose-500');
                     }
                     if(birthdayValid){
                         birthdayError.innerHTML = '';
-                        birthday.classList.remove('is-invalid');
+                        birthday.classList.remove('border-rose-500');
                     }
                     if(genderValid){
                         genderError.innerHTML = '';
-                        gender.classList.remove('is-invalid');
+                        gender.classList.remove('border-rose-500');
                     }
 
                     if(nameValid && birthdayValid && genderValid){
@@ -181,41 +196,46 @@ const validate = () => {
                         if(error == 'empty email'){
                             emailValid = false;
                             emailError.innerHTML = '*Email is required';
-                            email.classList.add('is-invalid');
+                            emailError.classList.add('text-rose-500');
+                            email.classList.add('border-rose-500');
                         } else if(error == 'invalid email'){
                             emailValid = false;
                             emailError.innerHTML = '*This email is invalid';
-                            email.classList.add('is-invalid');
+                            emailError.classList.add('text-rose-500');
+                            email.classList.add('border-rose-500');
                         } else if(error == 'email exists'){
                             emailValid = false;
                             emailError.innerHTML = '*An account is using this email';
-                            email.classList.add('is-invalid');
+                            emailError.classList.add('text-rose-500');
+                            email.classList.add('border-rose-500');
                         }
 
                         if(error == 'empty state'){
                             stateValid = false;
                             stateError.innerHTML = '*State is required';
-                            state.classList.add('is-invalid')
+                            stateError.classList.add('text-rose-500');
+                            state.classList.add('border-rose-500');
                         }
 
                         if(error == 'empty city'){
                             cityValid = false;
                             cityError.innerHTML = '*City is required';
-                            city_select.classList.add('is-invalid');
+                            cityError.classList.add('text-rose-500');
+                            city_select.classList.add('border-rose-500');
                         }
                     });
 
                     if (emailValid) {
                         emailError.innerHTML = '';
-                        email.classList.remove('is-invalid');
+                        email.classList.remove('border-rose-500');
                     }
                     if (stateValid) {
                         stateError.innerHTML = '';
-                        state.classList.remove('is-invalid')
+                        state.classList.remove('border-rose-500')
                     }
                     if (cityValid) {
                         cityError.innerHTML = '';
-                        city_select.classList.remove('is-invalid');
+                        city_select.classList.remove('border-rose-500');
                     }
 
                     if (emailValid && stateValid && cityValid) {
@@ -258,41 +278,46 @@ const validate = () => {
                         if (error == 'empty username'){
                             usernameValid = false;
                             usernameError.innerHTML = '*Username is required';
-                            username.classList.add('is-invalid');
+                            usernameError.classList.add('text-rose-500');
+                            username.classList.add('border-rose-500');
                         } else if (error == 'username exists'){
                             usernameValid = false;
                             usernameError.innerHTML = '*An account is using this username';
-                            username.classList.add('is-invalid');
+                            usernameError.classList.add('text-rose-500');
+                            username.classList.add('border-rose-500');
                         }
 
                         if (error == 'empty password'){
                             passValid = false;
                             passwordError.innerHTML = '*Password is required';
-                            password.classList.add('is-invalid');
+                            passwordError.classList.add('text-rose-500')
+                            password.classList.add('border-rose-500');
                         }
 
                         if (error == 'confirm pass'){
                             con_passValid = false;
                             confirmPass_error.innerHTML = '*You must confirm the password';
-                            confirm_pass.classList.add('is-invalid');
+                            confirmPass_error.classList.add('text-rose-500')
+                            confirm_pass.classList.add('border-rose-500');
                         } else if (error == "pass doesn't match"){
                             con_passValid = false;
                             confirmPass_error.innerHTML = "*Password doesn't match";
-                            confirm_pass.classList.add('is-invalid');
+                            confirmPass_error.classList.add('text-rose-500')
+                            confirm_pass.classList.add('border-rose-500');
                         }
                     });
 
                     if(usernameValid){
                         usernameError.innerHTML = '';
-                        username.classList.remove('is-invalid');
+                        username.classList.remove('border-rose-500');
                     }
                     if(passValid){
                         passwordError.innerHTML = '';
-                        password.classList.remove('is-invalid');
+                        password.classList.remove('border-rose-500');
                     }
                     if (con_passValid){
                         confirmPass_error.innerHTML = "";
-                        confirm_pass.classList.remove('is-invalid');
+                        confirm_pass.classList.remove('border-rose-500');
                     }
 
                     if(usernameValid && passValid && con_passValid){
@@ -307,12 +332,13 @@ const validate = () => {
 }
 
 
+
 const nextTab = () => {
     validate().then(isValid => {
         if(!isValid){
             return false;
         }
-        tabs[tabNumber].style.display = 'none';
+        tabs[tabNumber].classList.remove('active-tab');
 
         tabNumber++;
 
@@ -348,7 +374,8 @@ const nextTab = () => {
 }
 
 const prevTab = () => {
-    tabs[tabNumber].style.display = 'none';
+    tabs[tabNumber].classList.remove('active-tab');
+    steps[tabNumber].classList.remove('step-done');
 
     tabNumber--;
 
