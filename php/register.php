@@ -201,7 +201,7 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
 
 			<div class="form-field existingUser">
 				<div class="form-control justify-center">
-					<a class="link link-underline-hover link-primary text-sm">Existing user?</a>
+					<a href="../index.php" class="link link-underline-hover link-primary text-sm">Existing user?</a>
 				</div>
 			</div>
 
