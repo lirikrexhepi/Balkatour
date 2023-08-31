@@ -23,131 +23,7 @@ if (isset($_POST['logout'])) {
 
 <body id="top">
   <!-- header start -->
-  <header class="header" data-header>
-    <div class="container">
-
-      <a href="#">
-        <h1 class="logo">BalkaTour</h1>
-      </a>
-
-      <button class="nav-toggle-btn" data-nav-toggle-btn aria-label="Toggle Menu">
-        <ion-icon name="menu-outline" class="open"></ion-icon>
-        <ion-icon name="close-outline" class="close"></ion-icon>
-      </button>
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li>
-            <a href="index.php" class="navbar-link">Home</a>
-          </li>
-
-          <li>
-            <a href="#" class="navbar-link">About Us</a>
-            <!-- <select name="" id="" class="navbar-link">
-              <option value="">Our Team</option>
-            </select> -->
-          </li>
-
-
-          <li>
-            <div class="dropdown">
-              <button class="dropbtn">Travel
-                <ion-icon name="caret-down-outline"></ion-icon>
-              </button>
-              <div class="dropdown-content">
-                <a href="#">Tours</a>
-                <a href="#">Packages</a>
-                <a href="#">Shop</a>
-              </div>
-            </div>
-          </li>
-
-          <li>
-            <a href="chat.html" class="navbar-link">Chat</a>
-          </li>
-
-          <li>
-            <div class="dropdown">
-              <a class="dropbtn">Rent
-                <ion-icon name="caret-down-outline"></ion-icon>
-              </a>
-              <div class="dropdown-content">
-                <a href="#">Add a hosue</a>
-                <a href="rent.php">House</a>
-                <a href="#">Motel</a>
-                <a href="#">Apartament</a>
-              </div>
-            </div>
-          </li>
-
-
-        </ul>
-
-        <div class="popup-container" style="margin-right: 5%;">
-          <?php
-          if (!isset($_SESSION['user'])) {
-          ?>
-            <label class="navbar-link" for="login-popup">Login</label>
-            <input type="checkbox" id="login-popup">
-            <div class="popup">
-              <label for="login-popup" class="transparent-label"></label>
-              <div class="popup-inner">
-                <div class="popup-title">
-                  <h6>Login</h6>
-                  <label for="login-popup" class="popup-close-btn">Close</label>
-                </div>
-                <div class="popup-content">
-                  <form>
-                    <ul>
-                      <li>
-                        <input type="text" placeholder="Username" class="username input">
-                        <p class="usernameError dataError"></p>
-                      </li>
-                      <li>
-                        <input type="password" placeholder="Password" class="password input">
-                        <p class="passwordError dataError"></p>
-                      </li>
-                      <li>
-                        <button class="login" type="button">Log in</button>
-                      </li>
-                      <center><a href="./php/register.php">You don't have an account?</a></center>
-
-                      <center><a href="#">Forgot Password</a></center>
-                    </ul>
-                  </form>
-                </div>
-              </div>
-            </div>
-
-          <?php } else {  ?>
-            <label class="navbar-link" for="login-popup"><?php echo $_SESSION['user']; ?></label>
-            <input type="checkbox" id="login-popup">
-            <div class="popup">
-              <label for="login-popup" class="transparent-label"></label>
-              <div class="popup-inner">
-                <div class="popup-title">
-                  <h6>Profile:<?= $_SESSION['user']; ?></h6>
-                  <label for="login-popup" class="popup-close-btn">Close</label>
-                </div>
-                <div class="popup-content">
-                  <form action="" method="POST">
-                    <ul>
-                      <li>
-                        <button type="submit" name="logout" class="login">Log out</button>
-                      </li>
-                    </ul>
-                  </form>
-                </div>
-              </div>
-            <?php } ?>
-            </div>
-        </div>
-      </nav>
-
-    </div>
-  </header>
+  <?php include 'navbar.php'; ?>
 
   <main>
     <article>
@@ -361,9 +237,9 @@ if (isset($_POST['logout'])) {
 
       <div class="banner3-background" alt="banner">
         <div class="top-circle-image">
-          <p class="p-banner4 animate__animated animate__zoomIn">Why BALKATOUR is the best platform for traveling?</p>
+          <p class="p-banner4">Why BALKATOUR is the best platform for traveling?</p>
           <center>
-            <p class="p-banner04 animate__animated animate__zoomIn">The pourpes of this platform is to help tourist feel safe while visiting a new country, shop handmade pieces by locals, view where the bus is from your location etc. </p>
+            <p class="p-banner04">The pourpes of this platform is to help tourist feel safe while visiting a new country, shop handmade pieces by locals, view where the bus is from your location etc. </p>
           </center>
           <div class="div-circle-image">
             <img src="./assets/images/100.png" class="circle-image animate__animated animate__zoomIn">
@@ -420,7 +296,8 @@ if (isset($_POST['logout'])) {
                   </h3>
 
                   <address class="card-location">Zlatni Rat, Brač</address>
-
+                  <br>
+                  <button style="padding:10px 20px; background-color:#FFD205; color:white; border-radius:5px">View Details</button>
                 </div>
 
               </div>
@@ -457,6 +334,8 @@ if (isset($_POST['logout'])) {
                     <a href="#">Learn more about Albania's culture by visiting historical places. </a>
                   </h3>
                   <address class="card-location">Kruje, Albania</address>
+                  <br>
+                  <button style="padding:10px 20px; background-color:#FFD205; color:white; border-radius:5px">View Details</button>
                 </div>
               </div>
             </li>
@@ -497,7 +376,8 @@ if (isset($_POST['logout'])) {
                   </h3>
 
                   <address class="card-location">Sozopol, Bulgaria</address>
-
+                  <br>
+                  <button style="padding:10px 20px; background-color:#FFD205; color:white; border-radius:5px">View Details</button>
                 </div>
 
               </div>
@@ -509,189 +389,14 @@ if (isset($_POST['logout'])) {
     </article>
   </main>
   <!--  - #FOOTER  -->
-  <footer class="footer" style="background-image: url('./assets/images/footer-bg.png')">
-    <div class="container">
-
-      <div class="footer-top">
-
-        <ul class="footer-list">
-
-          <li>
-            <p class="footer-list-title">Top destination</p>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Rugove, Kosova</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Sarande, Albania</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Zagreb, Croatia</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Mykonos, Greece</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Prekaz, Kosova</a>
-          </li>
-
-        </ul>
-
-        <ul class="footer-list">
-
-          <li>
-            <p class="footer-list-title">Categories</p>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Travel</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Lifestyle</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Fashion</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Education</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Packetges</a>
-          </li>
-
-        </ul>
-
-        <ul class="footer-list">
-
-          <li>
-            <p class="footer-list-title">Quick links</p>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">About</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Contact</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Tours</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Booking</a>
-          </li>
-
-          <li>
-            <a href="#" class="footer-link">Terms & Conditions</a>
-          </li>
-
-        </ul>
-
-        <div class="footer-list">
-
-          <p class="footer-list-title">Get a newsletter</p>
-
-          <p class="newsletter-text">
-            For the latest deals and tips, travel no further than your inbox
-          </p>
-
-          <form action="" class="newsletter-form">
-            <input type="email" name="email" required placeholder="Email address" class="newsletter-input">
-
-            <button type="submit" class="btn btn-primary">Subscribe</button>
-          </form>
-
-        </div>
-
-      </div>
-
-      <div class="footer-bottom">
-
-        <a href="#" class="logo">BalkaTour</a>
-
-        <p class="copyright">
-          &copy; 2023 <a href="#" class="copyright-link">BalkaTour</a>. All Rights Reserved
-        </p>
-
-        <ul class="social-list">
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-google"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </div>
-  </footer>
-
-
-
-
-
-  <!-- 
-    - #GO TO TOP
-  -->
+  <?php include 'footer.php'; ?>
 
   <a href="#top" class="go-top" data-go-top aria-label="Go To Top">
     <ion-icon name="chevron-up-outline"></ion-icon>
   </a>
 
 
-
-
-
-  <!-- 
-    - custom js link
-  -->
-  <script src="./js/script.js"></script>
-
-  <!-- 
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <!-- JQuery link -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-  <script src="./js/login.js"></script>
+  <?php include 'script.php'; ?>
 
 </body>
 
