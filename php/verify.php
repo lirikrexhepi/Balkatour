@@ -11,26 +11,68 @@ include '../config.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rippleui@1.12.1/dist/css/styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Verify</title>
+    <style>
+        .input-small {
+            width: 50px;
+            /* Adjust the width as needed */
+            text-align: center;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .mt-100 {
+            margin-top: 100px;
+        }
+
+        .mt-25 {
+            margin-top: 25px;
+        }
+
+        input:focus {
+            border-color: lightskyblue;
+        }
+    </style>
+
 </head>
 
 <body>
-    <main class="mainVeriCode">
-        <form autocomplete="off" class="veri_form">
-            <h1>Verify your account</h1>
-            <p>Write down the code that was sent in your email!</p>
-            <div>
-                <input class="veri_code" type="text" maxlength="1" placeholder="0" id="otp1">
-                <input class="veri_code" type="text" maxlength="1" placeholder="0" id="otp2">
-                <input class="veri_code" type="text" maxlength="1" placeholder="0" id="otp3">
-                <input class="veri_code" type="text" maxlength="1" placeholder="0" id="otp4">
-                <input class="veri_code" type="text" maxlength="1" placeholder="0" id="otp5">
-                <input class="veri_code" type="text" maxlength="1" placeholder="0" id="otp6">
-            </div>
-            <button type="button" class="verify" id="verify"><div class="btnLoader"></div><span class="btnText">Verify</span></button>
-            <a class="countdown"><span class="restart"> Resend code:</span> <span class="timer"> </span></a>
-        </form>
+    <main class="mx-auto flex w-full max-w-sm flex-col gap-6 ">
+        <div class="flex flex-col items-center bordered mt-100 ">
+            <form autocomplete="off" class="veri_form">
+                <h1 class="center text-3xl font-semibold">Verify your account</h1>
+                <p class="mt-25 center text-sm">Write down the code that was sent in your email!</p>
+                <br>
+                <div class="column">
+                    <input class="veri_code input input-rounded input-small" type="text" maxlength="1" placeholder="0"
+                        id="otp1">
+                    <input class="veri_code input input-rounded input-small" type="text" maxlength="1" placeholder="0"
+                        id="otp2">
+                    <input class="veri_code input input-rounded input-small" type="text" maxlength="1" placeholder="0"
+                        id="otp3">
+                    <input class="veri_code input input-rounded input-small" type="text" maxlength="1" placeholder="0"
+                        id="otp4">
+                    <input class="veri_code input input-rounded input-small" type="text" maxlength="1" placeholder="0"
+                        id="otp5">
+                    <input class="veri_code input input-rounded input-small" type="text" maxlength="1" placeholder="0"
+                        id="otp6">
+                </div>
+                <div class="center mt-25">
+                    <button type="button" class="verify" id="verify">
+                        <div class="btnLoader "></div><span class="btnText btn btn-outline-primary ">Verify</span>
+                    </button>
+                </div>
+                <br>
+                <div class="center">
+                    <a class="countdown text-3xl font-semibold"><span class="restart"> Resend code:</span> <span
+                            class="timer"> </span></a>
+                </div>
+            </form>
+        </div>
     </main>
 
     <script>
@@ -70,7 +112,7 @@ include '../config.php';
             let verifyBtn = document.querySelector('#verify');
             let veri_code = document.querySelectorAll('.veri_code');
 
-            if(currentTime >= endTime2){
+            if (currentTime >= endTime2) {
                 document.querySelector(".restart").style.opacity = 1;
                 resend.href = "./resendCode.php";
             }
@@ -84,7 +126,7 @@ include '../config.php';
                     code.disabled = true;
                     code.style.borderColor = '';
                 });
-                
+
                 alert("Code has expired. Please click on the resend code link to resend the code!");
             } else {
                 verifyBtn.disabled = false;
@@ -99,7 +141,7 @@ include '../config.php';
         window.onload = displayTimeRemaining;
     </script>
 
-<!-- External links -->
+    <!-- External links -->
 
     <!-- JQuery link -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
