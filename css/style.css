@@ -1053,6 +1053,18 @@ body {
   box-shadow: 0 0 0 0.4rem rgb(37 207 172 / 25%);
 }
 
+.adress-input{
+  width: 300px;
+  height: 50px;
+  border: 1px solid #1BBC9B;
+  padding: 5px;
+  border-radius: 5px;
+  transition: .15s ease-in-out;
+  margin-top: 5px;
+  font-size: 16px;
+  color: var(--viridian-green);
+}
+
 
 
 .tab p,

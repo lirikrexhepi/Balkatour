@@ -1,6 +1,5 @@
 <?php
 require '../config.php';
-require '../map_API_key.php';
 ?>
 
 <!DOCTYPE html>
@@ -18,13 +17,14 @@ require '../map_API_key.php';
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Comforter+Brush&family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Tailwind library -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rippleui@1.12.1/dist/css/styles.css" />
-	<script src="https://cdn.tailwindcss.com"></script>
-
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
     <style>
         #map {
-            height: 70%;
+            height: 250px;
             width: 500px;
         }
     </style>
@@ -121,6 +121,10 @@ require '../map_API_key.php';
                 <div class="buildingTab hidden">
                     <h1 class="text-4xl">Select the location!</h1>
                     <div id="map"></div>
+
+                    <div>
+                        <input type="text" class="adres adress-input" placeholder="adress">
+                    </div>
                 </div>
                 <div class="buildingType-action">
                     <button type="button" class="backStep">Go back</button>
@@ -130,41 +134,8 @@ require '../map_API_key.php';
 
 
 
-
-
         <?php } ?>
 
-            <!-- prettier-ignore -->
-        <script>
-            (g => {
-                var h, a, k, p = "The Google Maps JavaScript API",
-                    c = "google",
-                    l = "importLibrary",
-                    q = "__ib__",
-                    m = document,
-                    b = window;
-                b = b[c] || (b[c] = {});
-                var d = b.maps || (b.maps = {}),
-                    r = new Set,
-                    e = new URLSearchParams,
-                    u = () => h || (h = new Promise(async (f, n) => {
-                        await (a = m.createElement("script"));
-                        e.set("libraries", [...r] + "");
-                        for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
-                        e.set("callback", c + ".maps." + q);
-                        a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
-                        d[q] = f;
-                        a.onerror = () => h = n(Error(p + " could not load."));
-                        a.nonce = m.querySelector("script[nonce]")?.nonce || "";
-                        m.head.append(a)
-                    }));
-                d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n))
-            })
-            ({
-                key: "<?= API_KEY ?>",
-                v: "beta"
-            });
-        </script>
 
         <!-- ionicon link -->
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
