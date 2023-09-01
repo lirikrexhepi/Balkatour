@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 29, 2023 at 04:23 PM
+-- Generation Time: Sep 01, 2023 at 01:57 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -90,6 +90,9 @@ CREATE TABLE `hotel` (
   `name` varchar(100) DEFAULT NULL,
   `location` varchar(100) DEFAULT NULL,
   `description` text DEFAULT NULL,
+  `phone` varchar(25) NOT NULL,
+  `rooms` int(11) NOT NULL,
+  `beds` int(11) NOT NULL,
   `place_offers_id` bigint(20) NOT NULL,
   `image_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -176,8 +179,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `userType`, `fullName`, `gender`, `birthday`, `email`, `state`, `city`, `username`, `password`, `registered`, `verification_code`, `verified`) VALUES
-(11, 1, 'Leart Ramadani', 'Male', '2000-01-01', 'leart.ramadani06@gmail.com', 1, 1, 'leart', '$2y$10$nfkyPTP2FZ8Cp6dMz9.Weuz4uWhby6VXZNxntadLZSjDypW8y045C', '2023-08-28 22:51:54', 0, 1),
-(16, 1, 'Guesst guesst', 'Female', '2000-01-01', 'guesst2006@gmail.com', 1, 3, 'guesst', '$2y$10$3e3m..wV3P5yYxf36EmPRel1E4smJVIPl89DA1sDHY6ErsifpY/wK', '2023-08-28 19:15:43', 0, 1);
+(21, 1, 'Leart Ramadani', 'Male', '2000-01-01', 'leart.ramadani06@gmail.com', 1, 1, 'leart', '$2y$10$De5V0gfxMVsptgcmJ/NixeZDUR3Qva5snxiJ.r1yKYfH2nLW9lHAC', '2023-09-01 13:44:14', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -315,7 +317,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `usertypes`

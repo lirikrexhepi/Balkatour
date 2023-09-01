@@ -64,7 +64,7 @@
                 <ion-icon name="caret-down-outline"></ion-icon>
               </a>
               <div class="dropdown-content">
-                <a href="#">Add a house</a>
+                <a href="./php/addHouse.php">Add a house</a>
                 <a href="house.php">House</a>
                 <a href="motel.php">Motel</a>
                 <a href="apartament.php">Apartament</a>

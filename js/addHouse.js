@@ -4,6 +4,7 @@ const buildings = document.querySelectorAll('.buildingTab');
 const backStepBtn = document.querySelector('.backStep');
 
 
+
 buildingType.forEach(element => {
     element.addEventListener('click', () => {
         // Remove 'building-active' class from all building types
@@ -64,6 +65,13 @@ bedDec.addEventListener('click', () => {
 });
 
 
+let map = L.map('map').setView([51.505, -0.09], 13);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+
 
 
 let tabNumber = 2;
@@ -113,6 +121,12 @@ const validate = () => {
             }
         });
     }
+
+    if(tabNumber == 2){
+        L.marker([51.5, -0.09]).addTo(map)
+            .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+            .openPopup();
+    }
 }
 
 const nextStep = () => {
@@ -139,4 +153,6 @@ const backStep = () => {
 
 nextStepBtn.addEventListener('click', nextStep);
 backStepBtn.addEventListener('click', backStep);
+
+
 
