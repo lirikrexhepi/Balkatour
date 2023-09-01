@@ -6,7 +6,7 @@ if (!isset($_SESSION['verify'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background-color: white;">
 
 <head>
     <meta charset="UTF-8">
@@ -34,18 +34,34 @@ if (!isset($_SESSION['verify'])) {
         }
 
         input:focus {
-            border-color: lightskyblue;
+            border-color: hsl(47, 98%, 50%);
+            ;
+        }
+
+        .blacktext {
+            color: black;
+        }
+
+        .whitetext {
+            color: white;
+        }
+
+        .centerdiv {
+            position: fixed;
+            left: 50%;
+            top: 35%;
+            transform: translate(-50%, -35%);
         }
     </style>
 
 </head>
 
-<body>
+<body class="centerdiv">
     <main class="mx-auto flex w-full max-w-sm flex-col gap-6 ">
         <div class="flex flex-col items-center bordered mt-100 ">
             <form autocomplete="off" class="veri_form">
-                <h1 class="center text-3xl font-semibold">Verify your account</h1>
-                <p class="mt-25 center text-sm">Write down the code that was sent in your email!</p>
+                <h1 class="center text-3xl font-semibold blacktext">Verify your account</h1>
+                <p class="mt-25 center text-sm blacktext">Write down the code that was sent in your email!</p>
                 <br>
                 <div class="column">
                     <input class="veri_code input input-rounded input-small" type="text" maxlength="1" placeholder="0"
@@ -63,13 +79,13 @@ if (!isset($_SESSION['verify'])) {
                 </div>
                 <div class="center mt-25">
                     <button type="button" class="verify" id="verify">
-                        <div class="btnLoader "></div><span class="btnText btn btn-outline-primary ">Verify</span>
+                        <div class="btnLoader "></div><span class="btnText btn btn-outline-warning ">Verify</span>
                     </button>
                 </div>
                 <br>
                 <div class="center">
-                    <a class="countdown text-3xl font-semibold"><span class="restart"> Resend code:</span> <span
-                            class="timer"> </span></a>
+                    <a class="countdown text-3xl font-semibold"><span class="restart blacktext"> Resend code:</span>
+                        <span class="timer blacktext"> </span></a>
                 </div>
             </form>
         </div>
