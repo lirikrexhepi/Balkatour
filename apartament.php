@@ -77,7 +77,7 @@ if (isset($_POST['logout'])) {
 
     </div>
   </section>
-
+  <br><br>
   <?php include 'footer.php'; ?>
 
   <a href="#top" class="go-top" data-go-top aria-label="Go To Top">

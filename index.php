@@ -388,6 +388,7 @@ if (isset($_POST['logout'])) {
   <!-- 
     - #GO TO TOP
   -->
+  <br><br>
   <?php include 'footer.php'?>
 
   <a href="#top" class="go-top" data-go-top aria-label="Go To Top">
