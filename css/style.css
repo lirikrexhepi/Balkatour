@@ -2477,3 +2477,36 @@ margin-top: 2%;
 margin-top: 2%;
 background-color: #081D45;
 }
+
+
+.selectLocation{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid var(--viridian-green);
+  width: 400px;
+  height: 120px;
+  padding: 15px;
+  border-radius: 5px;
+  color: var(--viridian-green);
+  user-select: none;
+  cursor: pointer;
+}
+
+.selectLocation:hover{
+  transition: .2s;
+  background-color: var(--viridian-green);
+  color: white;
+}
+.selectLocation:active{
+  opacity: .7;
+}
+
+
+.selectLocation > i {
+  font-size: 40px;
+}
+
+.selectLocation > p {
+  font-size: 20px;
+}
