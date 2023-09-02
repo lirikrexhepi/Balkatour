@@ -70,7 +70,7 @@
     ;k=t.Promise;t.Talk={v:3,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l
     .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);
   </script>
-
+ <br><br>
   <?php include 'footer.php'?>
 
   <a href="#top" class="go-top" data-go-top aria-label="Go To Top">
