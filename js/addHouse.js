@@ -67,7 +67,7 @@ bedDec.addEventListener('click', () => {
 
 
 
-let tabNumber = 0;
+let tabNumber = 4;
 
 const showTab = n => {
     buildings[n].classList.remove('hidden');
@@ -87,6 +87,52 @@ const showTab = n => {
 }
 
 showTab(tabNumber);
+
+
+const fileInput = document.getElementById("file");
+const filePreview = document.getElementById("filePreview");
+const MAX_IMAGES = 10;
+let displayedImages = 0;
+const imageUrls = []; // Array to store image URLs
+
+fileInput.addEventListener("change", function () {
+    const files = this.files;
+
+    if (displayedImages + files.length > MAX_IMAGES) {
+        alert(`You can only display a maximum of ${MAX_IMAGES} images.`);
+        return;
+    }
+
+    for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+
+        if (file.type.startsWith("image/")) {
+            const reader = new FileReader();
+
+            reader.onload = function (event) {
+                const imageUrl = event.target.result;
+                const img = document.createElement("img");
+                img.src = imageUrl;
+
+                // Append the new image preview
+                filePreview.appendChild(img);
+                displayedImages++; // Increment the count of displayed images
+
+                // Store the image URL in the array
+                imageUrls.push(imageUrl);
+
+            };
+
+            reader.readAsDataURL(file);
+        } else {
+            alert(`File ${file.name} is not an image and will be skipped.`);
+        }
+    }
+
+    // Clear the file input after processing
+    this.value = "";
+});
+
 
 
 const currLoca_wrapper = document.querySelector('.currentLocation');
@@ -243,6 +289,19 @@ const validate = () => {
 
 
 
+        });
+    }
+
+    if (tabNumber == 3) {
+        return new Promise((resolve, reject) => {
+        if (imageUrls.length > 0) {
+            // Alert the user with the image URLs
+            alert( imageUrls);
+            resolve(true);
+        } else {
+            alert("Please upload at least one image.");
+            resolve(false);
+        }
         });
     }
 

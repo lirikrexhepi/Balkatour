@@ -159,16 +159,50 @@ require '../config.php';
                 </div>
 
                 <div class="buildingTab hidden">
-                    <h1 class="text-4xl">Fill the information!</h1>
-                    
+                    <h1 class="text-4xl">Add images</h1>
+                    <input type="file" id="file" accept="image/*" multiple style="display: none;">
+                    <label for="file" class="fileLabel">
+                        <img src="../assets/logo/icons/add-image.png" alt="">
+                        Add images
+                    </label>
+                    <div class="file-preview" id="filePreview">
+                        <!-- Images will be displayed here -->
+                    </div>
                 </div>
-                
+
+                <div class="buildingTab hidden post-last-info">
+                    <h1 class="text-4xl">Fill the information</h1>
+                    <input type="text" placeholder="Title" class="post-title">
+                    <div class="description-wrapper">
+                        <label for="description">Description</label>
+                        <textarea cols="40" rows="8" id="description" class="post-description"></textarea>
+                    </div>
+                    <div class="price-wrapper">
+                        <label for="">Price per night</label>
+                        <div>
+                            <input type="text" id="price" class="post-price">
+                            <label for="price">&euro;</label>
+                        </div>
+                    </div>
+                    <div class="available-dates">
+                        <div class="available-from-wrapper">
+                            <label for="">Available from</label>
+                            <input type="date" class="available-from">
+                        </div>
+                        <div class="available-until-wrapper">
+                            <label for="">Available until</label>
+                            <input type="date" class="available-until">
+                        </div>
+                    </div>
+                </div>
+
+
                 <div class="buildingType-action">
                     <button type="button" class="backStep">Go back</button>
                     <button type="button" class="nextStep">Next</button>
                 </div>
             </div>
-            
+
 
 
         <?php } ?>

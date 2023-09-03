@@ -31,8 +31,8 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
 	.loader {
 		width: 100px;
 		height: 100px;
-		border: 12px solid rgba(255, 255, 255, .5);
-		border-top: 12px solid #fff;
+		border: 12px solid rgba(0, 0, 0, .5);
+		border-top: 12px solid black;
 		border-radius: 50%;
 		animation: spin 1s linear infinite;
 	}
@@ -136,6 +136,16 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
 						<input placeholder="Type here" type="email" class="input max-w-full email" />
 						<label class="form-label">
 							<span class="form-label-alt emailError blacktext">Please enter your email</span>
+						</label>
+					</div>
+				</div>
+
+				<div class="mt-3">
+					<div class="form-field">
+						<label class="form-label blacktext ">Phone number</label>
+						<input placeholder="Type here" type="text" class="input max-w-full phone" />
+						<label class="form-label">
+							<span class="form-label-alt phoneError blacktext">Please enter your phone number</span>
 						</label>
 					</div>
 				</div>

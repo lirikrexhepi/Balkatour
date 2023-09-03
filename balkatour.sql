@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 01, 2023 at 01:57 PM
+-- Generation Time: Sep 03, 2023 at 08:40 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -165,6 +165,7 @@ CREATE TABLE `users` (
   `gender` varchar(15) NOT NULL,
   `birthday` date NOT NULL,
   `email` varchar(100) NOT NULL,
+  `phone` varchar(20) NOT NULL,
   `state` int(11) NOT NULL,
   `city` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
@@ -178,8 +179,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `userType`, `fullName`, `gender`, `birthday`, `email`, `state`, `city`, `username`, `password`, `registered`, `verification_code`, `verified`) VALUES
-(21, 1, 'Leart Ramadani', 'Male', '2000-01-01', 'leart.ramadani06@gmail.com', 1, 1, 'leart', '$2y$10$De5V0gfxMVsptgcmJ/NixeZDUR3Qva5snxiJ.r1yKYfH2nLW9lHAC', '2023-09-01 13:44:14', 0, 1);
+INSERT INTO `users` (`id`, `userType`, `fullName`, `gender`, `birthday`, `email`, `phone`, `state`, `city`, `username`, `password`, `registered`, `verification_code`, `verified`) VALUES
+(21, 1, 'Leart Ramadani', 'Male', '2000-01-01', 'leart.ramadani06@gmail.com', '+38344525144', 1, 1, 'leart', '$2y$10$De5V0gfxMVsptgcmJ/NixeZDUR3Qva5snxiJ.r1yKYfH2nLW9lHAC', '2023-09-01 13:44:14', 0, 1),
+(22, 1, 'palidhje', 'Male', '2000-01-01', 'palidhje@gmail.com', '+38349587412', 2, 9, 'paldihje', '$2y$10$fKrMPuWj3jOsNMGzyEIGYOqcUUI5HJEbDWL..yxknZY0P9.3LmAZq', '2023-09-01 15:20:41', 0, 1),
+(23, 1, 'paldij', 'Female', '2000-01-01', 'palidhjeee@gmail.com', '+38345123123', 1, 3, 'palidhej', '$2y$10$vDdoruw7CkBCp7KHdXg1wO.XwEkkizKjf680dlwuxo47hINgklcve', '2023-09-03 19:32:43', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -317,7 +320,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `usertypes`
