@@ -63,7 +63,7 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
 	.centerdiv {
 		position: fixed;
 		left: 50%;
-		top: 35%;
+		top: 30%;
 		transform: translate(-50%, -35%);
 	}
 
@@ -96,7 +96,7 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
 	</div>
 
 
-	<div class="mx-auto flex w-full max-w-sm flex-col gap-6 mt-20">
+	<div class="mx-auto flex w-full max-w-sm flex-col gap-6 mt-10">
 
 		<div class="flex flex-col items-center">
 			<h1 class="text-3xl font-semibold signingUp blacktext">Sign Up</h1>
@@ -148,7 +148,7 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
 				<div class="mt-3">
 					<div class="form-field">
 						<label class="form-label blacktext ">Phone number</label>
-						<input placeholder="Type here" type="text" class="input max-w-full phone" />
+						<input placeholder="Type here" type="text" class="input max-w-full phone whiteinput blacktext" />
 						<label class="form-label">
 							<span class="form-label-alt phoneError blacktext">Please enter your phone number</span>
 						</label>
