@@ -66,6 +66,10 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
 		top: 35%;
 		transform: translate(-50%, -35%);
 	}
+
+	.whiteinput {
+		background-color: white;
+	}
 </style>
 
 <body class="centerdiv">
@@ -102,14 +106,14 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
 			<div class="showTab flex flex-col w-full">
 				<div class="form-field">
 					<label class="form-label blacktext">Full Name</label>
-					<input placeholder="Type here" type="text" class="input max-w-full fullName" />
+					<input placeholder="Type here" type="text" class="blacktext whiteinput input max-w-full fullName" />
 					<label class="form-label blacktext">
 						<span class="form-label-alt nameError blacktext">Please enter your real name</span>
 					</label>
 				</div>
 				<div class="form-field mt-3">
 					<label class="form-label blacktext ">Birthday</label>
-					<input type="date" class="input max-w-full birthday" required />
+					<input type="date" class="blacktext whiteinput input max-w-full birthday" required />
 					<label class="form-label">
 						<span class="form-label-alt birthdayError blacktext ">Please enter your birthday</span>
 					</label>
@@ -117,7 +121,7 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
 				<div>
 					<div class="form-field mt-3">
 						<label class="form-label blacktext ">Gender</label>
-						<select class="select input max-w-full gender">
+						<select class="blacktext select whiteinput input max-w-full gender">
 							<option value="" selected disabled>Select gender</option>
 							<option value="Male">Male</option>
 							<option value="Female">Female</option>
@@ -133,7 +137,8 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
 				<div>
 					<div class="form-field">
 						<label class="form-label blacktext ">Email</label>
-						<input placeholder="Type here" type="email" class="input max-w-full email" />
+						<input placeholder="Type here" type="email"
+							class="blacktext whiteinput input max-w-full email" />
 						<label class="form-label">
 							<span class="form-label-alt emailError blacktext">Please enter your email</span>
 						</label>
@@ -142,7 +147,7 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
 
 				<div class="mt-3">
 					<label class="form-label blacktext">State</label>
-					<select class="state input max-w-full">
+					<select class="blacktext state whiteinput input max-w-full">
 						<option value="">Select state</option>
 						<?php foreach ($state_data as $state): ?>
 							<option value="<?= $state['name'] ?>"><?= $state['name'] ?></option>
@@ -155,8 +160,8 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
 
 				<div class="mt-3">
 					<label class="form-label blacktext">City</label>
-					<select class="city input max-w-full">
-						<option value="">Select city</option>
+					<select class="blacktext city whiteinput input max-w-full">
+						<option value="" class="blacktext">Select city</option>
 					</select>
 					<label class="form-label">
 						<span class="form-label-alt cityError blacktext">Please enter your state</span>
@@ -169,7 +174,8 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
 				<div class="form-field">
 					<label class="form-label blacktext">Username</label>
 					<div class="form-control">
-						<input placeholder="Type here" type="text" class="input max-w-full username" />
+						<input placeholder="Type here" type="text"
+							class="blacktext whiteinput input max-w-full username" />
 					</div>
 					<label class="form-label">
 						<span class="form-label-alt usernameError blacktext">Please enter your username</span>
@@ -179,7 +185,8 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
 				<div class="form-field mt-3">
 					<label class="form-label blacktext">Password</label>
 					<div class="form-control">
-						<input placeholder="Type here" id="pass" type="password" class="input max-w-full password" />
+						<input placeholder="Type here" id="pass" type="password"
+							class="blacktext whiteinput input max-w-full password" />
 					</div>
 					<label class="form-label">
 						<span class="form-label-alt passwordError blacktext">Please enter your password</span>
@@ -190,7 +197,7 @@ $state_data = $state_prep->fetchAll(PDO::FETCH_ASSOC);
 					<label class="form-label blacktext">Confrim password</label>
 					<div class="form-control">
 						<input placeholder="Type here" id="confirmpass" type="password"
-							class="input max-w-full confirm_pass" />
+							class="blacktext whiteinput input max-w-full confirm_pass" />
 					</div>
 					<label class="form-label">
 						<span class="form-label-alt confirmPass_error blacktext">Please confirm your password</span>

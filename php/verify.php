@@ -1,9 +1,9 @@
 <?php
 include '../config.php';
 
-if (!isset($_SESSION['verify'])) {
-    header("Location: register.php");
-}
+#if (!isset($_SESSION['verify'])) {
+#    header("Location: register.php");
+#}
 ?>
 <!DOCTYPE html>
 <html lang="en" style="background-color: white;">
@@ -46,6 +46,10 @@ if (!isset($_SESSION['verify'])) {
             color: white;
         }
 
+        .whiteinput {
+            background-color: white;
+        }
+
         .centerdiv {
             position: fixed;
             left: 50%;
@@ -64,18 +68,18 @@ if (!isset($_SESSION['verify'])) {
                 <p class="mt-25 center text-sm blacktext">Write down the code that was sent in your email!</p>
                 <br>
                 <div class="column">
-                    <input class="veri_code input input-rounded input-small" type="text" maxlength="1" placeholder="0"
-                        id="otp1">
-                    <input class="veri_code input input-rounded input-small" type="text" maxlength="1" placeholder="0"
-                        id="otp2">
-                    <input class="veri_code input input-rounded input-small" type="text" maxlength="1" placeholder="0"
-                        id="otp3">
-                    <input class="veri_code input input-rounded input-small" type="text" maxlength="1" placeholder="0"
-                        id="otp4">
-                    <input class="veri_code input input-rounded input-small" type="text" maxlength="1" placeholder="0"
-                        id="otp5">
-                    <input class="veri_code input input-rounded input-small" type="text" maxlength="1" placeholder="0"
-                        id="otp6">
+                    <input class="blacktext whiteinput veri_code input input-rounded input-small" type="text"
+                        maxlength="1" placeholder="0" id="otp1">
+                    <input class="blacktext whiteinput veri_code input input-rounded input-small" type="text"
+                        maxlength="1" placeholder="0" id="otp2">
+                    <input class="blacktext whiteinput veri_code input input-rounded input-small" type="text"
+                        maxlength="1" placeholder="0" id="otp3">
+                    <input class="blacktext whiteinput veri_code input input-rounded input-small" type="text"
+                        maxlength="1" placeholder="0" id="otp4">
+                    <input class="blacktext whiteinput veri_code input input-rounded input-small" type="text"
+                        maxlength="1" placeholder="0" id="otp5">
+                    <input class="blacktext whiteinput veri_code input input-rounded input-small" type="text"
+                        maxlength="1" placeholder="0" id="otp6">
                 </div>
                 <div class="center mt-25">
                     <button type="button" class="verify" id="verify">
