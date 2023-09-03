@@ -79,6 +79,7 @@ const fullName = document.querySelector('.fullName');
 const birthday = document.querySelector('.birthday');
 const gender = document.querySelector('.gender');
 const email = document.querySelector('.email');
+const phone = document.querySelector('.phone');
 // state and city are declared at the top of the file
 const username = document.querySelector('.username');
 const password = document.querySelector('.password');
@@ -89,6 +90,7 @@ const nameError = document.querySelector('.nameError');
 const birthdayError = document.querySelector('.birthdayError');
 const genderError = document.querySelector('.genderError');
 const emailError = document.querySelector('.emailError');
+const phoneError = document.querySelector('.phoneError');
 const stateError = document.querySelector('.stateError');
 const cityError = document.querySelector('.cityError');
 const usernameError = document.querySelector('.usernameError');
@@ -182,6 +184,7 @@ const validate = () => {
                 data: {
                     action: 'secondTab',
                     email: email.value,
+                    phone: phone.value,
                     state: state.value,
                     city: city_select.value
                 }, 
@@ -189,6 +192,7 @@ const validate = () => {
                     response = JSON.parse(response);
 
                     let emailValid = true;
+                    let phoneValid = true;
                     let stateValid = true;
                     let cityValid = true;
 
@@ -210,6 +214,23 @@ const validate = () => {
                             email.classList.add('border-rose-500');
                         }
 
+                        if(error == 'empty phone'){
+                            phoneValid = false;
+                            phoneError.innerHTML = '*Phone number is required';
+                            phoneError.classList.add('text-rose-500');
+                            phone.classList.add('border-rose-500');
+                        } else if (error == 'invalid phone'){
+                            phoneValid = false;
+                            phoneError.innerHTML = '*This phone number is invalid';
+                            phoneError.classList.add('text-rose-500');
+                            phone.classList.add('border-rose-500');
+                        } else if (error == 'phone exists'){
+                            phoneValid = false;
+                            phoneError.innerHTML = '*An account is using this phone number';
+                            phoneError.classList.add('text-rose-500');
+                            phone.classList.add('border-rose-500');
+                        }
+
                         if(error == 'empty state'){
                             stateValid = false;
                             stateError.innerHTML = '*State is required';
@@ -229,6 +250,10 @@ const validate = () => {
                         emailError.innerHTML = '';
                         email.classList.remove('border-rose-500');
                     }
+                    if(phoneValid) {
+                        phoneError.innerHTML = '';
+                        phone.classList.remove('border-rose-500');
+                    }
                     if (stateValid) {
                         stateError.innerHTML = '';
                         state.classList.remove('border-rose-500')
@@ -238,7 +263,7 @@ const validate = () => {
                         city_select.classList.remove('border-rose-500');
                     }
 
-                    if (emailValid && stateValid && cityValid) {
+                    if (emailValid && phoneValid && stateValid && cityValid) {
                         resolve(true);
                     } else {
                         resolve(false);
@@ -256,12 +281,6 @@ const validate = () => {
                 type: 'POST',
                 data: {
                     action: 'thirdTab',
-                    fullName: fullName.value,
-                    birthday: birthday.value,
-                    gender: gender.value,
-                    email: email.value,
-                    state: state.value,
-                    city: city_select.value,
                     username: username.value,
                     password: password.value,
                     confirm_pass: confirm_pass.value
@@ -352,6 +371,7 @@ const nextTab = () => {
                     birthday: birthday.value,
                     gender: gender.value,
                     email: email.value,
+                    phone: phone.value,
                     state: state.value,
                     city: city_select.value,
                     username: username.value,

@@ -12,7 +12,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-$nameErr = $birthdayErr = $genderErr = $emailErr = $stateErr = $cityErr = $usernameErr = $passErr = $confirmPassErr = '';
+$nameErr = $birthdayErr = $genderErr = $emailErr = $phoneErr = $stateErr = $cityErr = $usernameErr = $passErr = $confirmPassErr = '';
 
 if (isset($_POST['action']) && $_POST['action'] == 'getCities') {
     // Gets the state value from the ajax sent request
@@ -94,6 +94,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'firstTab') {
 // Check second tab
 if (isset($_POST['action']) && $_POST['action'] == 'secondTab') {
     $email = $_POST['email'];
+    $phone = $_POST['phone'];
     $state = $_POST['state'];
     $city = $_POST['city'];
 
@@ -118,6 +119,26 @@ if (isset($_POST['action']) && $_POST['action'] == 'secondTab') {
         }
     }
 
+    if (empty($phone)) {
+        $phoneErr = 'empty phone';
+    } else {
+        if (!preg_match('/^\+[0-9]+$/', $phone)) {
+            $phoneErr = 'invalid phone';
+        } else {
+            $check_phone = "SELECT phone FROM users WHERE userType=1 AND phone=:phone";
+            $check_phone_prep = $con->prepare($check_phone);
+            $check_phone_prep->bindParam(':phone', $phone);
+            $check_phone_prep->execute();
+            $check_phone_data = $check_phone_prep->fetch();
+
+            if ($check_phone_data) {
+                $phoneErr = 'phone exists';
+            } else {
+                $phoneErr = '';
+            }
+        }
+    }
+
     if (empty($state)) {
         $stateErr = 'empty state';
     } else {
@@ -130,7 +151,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'secondTab') {
         $cityErr = '';
     }
 
-    $response = [$emailErr, $stateErr, $cityErr];
+    $response = [$emailErr, $phoneErr, $stateErr, $cityErr];
 
     echo json_encode($response);
 }
@@ -138,12 +159,6 @@ if (isset($_POST['action']) && $_POST['action'] == 'secondTab') {
 
 // Check third tab
 if (isset($_POST['action']) && $_POST['action'] == 'thirdTab') {
-    $fullName = $_POST['fullName'];
-    $birthday = $_POST['birthday'];
-    $gender = $_POST['gender'];
-    $email = $_POST['email'];
-    $state = $_POST['state'];
-    $city = $_POST['city'];
     $username = $_POST['username'];
     $password = $_POST['password'];
     $confirmPass = $_POST['confirm_pass'];
@@ -192,6 +207,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'insert') {
     $birthday = $_POST['birthday'];
     $gender = $_POST['gender'];
     $email = $_POST['email'];
+    $phone = $_POST['phone'];
     $state = $_POST['state'];
     $city = $_POST['city'];
     $username = $_POST['username'];
@@ -268,8 +284,8 @@ if (isset($_POST['action']) && $_POST['action'] == 'insert') {
         $city_data = $city_prep->fetch(PDO::FETCH_ASSOC);
         $city_id = $city_data['id'];
 
-        $sql = "INSERT INTO users(userType, fullName, gender, birthday, email, state, city, username, password, verification_code, verified)
-        VALUES(:userType, :fullName, :gender, :birthday, :email, :state, :city, :username, :password, :verification_code, :verified)";
+        $sql = "INSERT INTO users(userType, fullName, gender, birthday, email, phone, state, city, username, password, verification_code, verified)
+        VALUES(:userType, :fullName, :gender, :birthday, :email, :phone, :state, :city, :username, :password, :verification_code, :verified)";
 
         $prep = $con->prepare($sql);
         $prep->bindParam(':userType', $userType, PDO::PARAM_INT);
@@ -277,6 +293,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'insert') {
         $prep->bindParam(':gender', $gender);
         $prep->bindParam(':birthday', $birthday);
         $prep->bindParam(':email', $email);
+        $prep->bindParam(':phone', $phone);
         $prep->bindParam(':state', $state_id, PDO::PARAM_INT);
         $prep->bindParam(':city', $city_id, PDO::PARAM_INT);
         $prep->bindParam(':username', $username);
