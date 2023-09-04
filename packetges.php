@@ -47,6 +47,7 @@ unset($_SESSION['user']);
       <p class="section-subtitle" style="padding-top: 30px;">Choose our Packetges</p>
     </center>
 
+    <br><br>
     <section class="section popular">
         <div class="container">
 
@@ -73,18 +74,12 @@ unset($_SESSION['user']);
                     <div class="card-price">From 350.00€</div>
 
                     <div class="card-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star-outline"></ion-icon>
-
-                      <data value="2">(2)</data>
+                      <data value="2">3.7</data>
                     </div>
                   </div>
 
                   <h3 class="card-title">
-                    <a href="#">A trip to Croatia's beaches is all you need to experience in this lifetime.</a>
+                    <a href="#">Visit tourist places in Croatia</a>
                   </h3>
 
                   <address class="card-location">Zlatni Rat, Brač</address>
@@ -114,16 +109,11 @@ unset($_SESSION['user']);
                   <div class="card-wrapper">
                     <div class="card-price">From 150.00€</div>
                     <div class="card-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star-outline"></ion-icon>
-                      <data value="3">(3)</data>
+                      <data value="3">4.5</data>
                     </div>
                   </div>
                   <h3 class="card-title">
-                    <a href="#">Learn more about Albania's culture by visiting historical places. </a>
+                    <a href="#">Visit tourist places in Albania</a>
                   </h3>
                   <address class="card-location">Kruje, Albania</address>
                   <br>
@@ -153,18 +143,12 @@ unset($_SESSION['user']);
                     <div class="card-price">From 450.00€</div>
 
                     <div class="card-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star-outline"></ion-icon>
-
-                      <data value="2">(7)</data>
+                      <data value="2">5.0</data>
                     </div>
                   </div>
 
                   <h3 class="card-title">
-                    <a href="#">A good traveler has no fixed plans and is not intent on arriving.</a>
+                    <a href="#">Visit tourist places in Bulgaria.</a>
                   </h3>
 
                   <address class="card-location">Sozopol, Bulgaria</address>
@@ -177,6 +161,7 @@ unset($_SESSION['user']);
           </ul>
         </div>
       </section>
+      <br><br>
 
       <center><button style="padding:10px 20px; background-color:#FFD205; color:white; border-radius:5px">Load More</button></center>
 
