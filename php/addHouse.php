@@ -18,19 +18,37 @@ require '../config.php';
     <!-- Tailwind library -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rippleui@1.12.1/dist/css/styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-
     <style>
-        #map {
-            height: 250px;
+        #gmap-canvas {
+            height: 100%;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        #gmap-canvas img {
+            max-height: none;
+            max-width: none !important;
+            background: none !important;
+        }
+
+        iframe {
+            height: 100%;
+            width: 100%;
+            border: 0;
+        }
+
+        .mapWrapper {
+            max-width: 100%;
+            list-style: none;
+            transition: none;
+            overflow: hidden;
             width: 500px;
+            height: 300px;
         }
     </style>
 </head>
 
-<body style="height: 100%;">
+<body style="height: 100%; ">
 
     <div class="buildingWrapper">
         <!-- if user is not signed in -->
@@ -120,12 +138,65 @@ require '../config.php';
                 </div>
                 <div class="buildingTab hidden">
                     <h1 class="text-4xl">Select the location!</h1>
-                    <div id="map"></div>
+                    <div class="selectLocation currentLocation">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>Use my current location.</p>
+                    </div>
+                    <div class="selectLocation mt-2 writeLocation">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>Write down the address.</p>
+                    </div>
 
-                    <div>
+                    <div class="mapWrapper hidden">
+                        <div id="gmap-canvas">
+                            <iframe frameborder="0" class="mapFrame"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="adressInpWrapper hidden">
                         <input type="text" class="adres adress-input" placeholder="adress">
                     </div>
                 </div>
+
+                <div class="buildingTab hidden">
+                    <h1 class="text-4xl">Add images</h1>
+                    <input type="file" id="file" accept="image/*" multiple style="display: none;">
+                    <label for="file" class="fileLabel">
+                        <img src="../assets/logo/icons/add-image.png" alt="">
+                        Add images
+                    </label>
+                    <div class="file-preview" id="filePreview">
+                        <!-- Images will be displayed here -->
+                    </div>
+                </div>
+
+                <div class="buildingTab hidden post-last-info">
+                    <h1 class="text-4xl">Fill the information</h1>
+                    <input type="text" placeholder="Title" class="post-title">
+                    <div class="description-wrapper">
+                        <label for="description">Description</label>
+                        <textarea cols="40" rows="8" id="description" class="post-description"></textarea>
+                    </div>
+                    <div class="price-wrapper">
+                        <label for="">Price per night</label>
+                        <div>
+                            <input type="text" id="price" class="post-price">
+                            <label for="price">&euro;</label>
+                        </div>
+                    </div>
+                    <div class="available-dates">
+                        <div class="available-from-wrapper">
+                            <label for="">Available from</label>
+                            <input type="date" class="available-from">
+                        </div>
+                        <div class="available-until-wrapper">
+                            <label for="">Available until</label>
+                            <input type="date" class="available-until">
+                        </div>
+                    </div>
+                </div>
+
+
                 <div class="buildingType-action">
                     <button type="button" class="backStep">Go back</button>
                     <button type="button" class="nextStep">Next</button>
