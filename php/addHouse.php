@@ -45,6 +45,19 @@ require '../config.php';
             width: 500px;
             height: 300px;
         }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        .loader {
+            border: 12px solid rgba(0, 0, 0, .5);
+            border-top: 12px solid black;
+        }
+
+        .textBlack{
+            color: black !important;
+        }
     </style>
 </head>
 
@@ -195,6 +208,59 @@ require '../config.php';
                         </div>
                     </div>
                 </div>
+
+                <div class="buildingTab hidden post-last-info">
+                    <h1 class="text-4xl">Place offers:</h1>
+                    <div class="place-offers">
+                        <div>
+                            <label for="wifi">
+                                <img src="../assets/logo/icons/wifi.png">
+                                Wi-fi
+                            </label>
+                            <input type="checkbox" id="wifi" data-place-offers="wifi">
+                        </div>
+                        <div>
+                            <label for="parking">
+                                <img src="../assets/logo/icons/parked-car.png">
+                                Parking
+                            </label>
+                            <input type="checkbox" id="parking" data-place-offers="parking">
+                        </div>
+                        <div>
+                            <label for="heating">
+                                <img src="../assets/logo/icons/heating.png">
+                                Heating
+                            </label>
+                            <input type="checkbox" id="heating" data-place-offers="heating">
+                        </div>
+                        <div>
+                            <label for="tv">
+                                <img src="../assets/logo/icons/tv.png">
+                                TV
+                            </label>
+                            <input type="checkbox" id="tv" data-place-offers="tv">
+                        </div>
+                        <div>
+                            <label for="lightningProof">
+                                <img src="../assets/logo/icons/electricity.png">
+                                Lightning proof
+                            </label>
+                            <input type="checkbox" id="lightningProof" data-place-offers="lightningProof">
+                        </div>
+                        <div>
+                            <label for="printer">
+                                <img src="../assets/logo/icons/printer.png">Printer
+                            </label>
+                            <input type="checkbox" id="printer" data-place-offers="printer">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="buildingTab hidden">
+                    <h1 class="text-4xl textBlack">Please wait...</h1>
+                    <div class="loader"></div>
+                </div>
+
 
 
                 <div class="buildingType-action">
