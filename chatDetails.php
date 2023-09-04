@@ -30,6 +30,17 @@
     <center>
       <p class="section-subtitle" style="padding-top: 30px;">Chat here with a local from Prizren</p>
     </center>
+    <section class="about-us">
+      <div class="about">
+        <img src="./assets/images/faces/face1.jpg" class="pic">
+        <div class="text">
+          <h2>About <span>Leart Ramadani</span></h2>
+          <h5>Prizren, Kosova</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita natus ad sed harum itaque ullam enim quas, veniam accusantium, quia animi id eos adipisci iusto molestias asperiores explicabo cum vero atque amet corporis! Soluta illum facere consequuntur magni. </p>
+          <a href="https://www.instagram.com/"><button class="hire">Follow on Social Media</button></a>
+        </div>
+      </div>
+    </section>
 
     <script>
         (function(t,a,l,k,j,s){
