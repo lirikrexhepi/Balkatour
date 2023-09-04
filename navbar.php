@@ -26,7 +26,7 @@
 
       <nav class="navbar">
 
-        <ul class="navbar-list">
+        <ul class="navbar-list" style="margin-top:-20px">
 
           <li>
             <a href="index.php" class="navbar-link">Home</a>
