@@ -157,6 +157,7 @@ if (isset($_POST['logout'])) {
       <!-- End Destination Section -->
 
       <!-- About us start -->
+      <br><br>
       <section class="section about">
         <div class="container">
 
@@ -232,8 +233,8 @@ if (isset($_POST['logout'])) {
       <!-- About Us end -->
 
       <!-- Banner with data -->
-
-      <div class="banner3-background" alt="banner">
+      <br><br><br><br><br>
+      <!-- <div class="banner3-background" alt="banner">
         <div class="top-circle-image">
           <p class="p-banner4 animate__animated animate__zoomIn">Why BALKATOUR is the best platform for traveling?</p>
           <center>
@@ -246,9 +247,10 @@ if (isset($_POST['logout'])) {
             <img src="./assets/images/40.png" class="circle-image animate__animated animate__zoomIn">
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- end of banner with data -->
       <!-- Tours -->
+      <br><br><br>
       <section class="section popular">
         <div class="container">
 

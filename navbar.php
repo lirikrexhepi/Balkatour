@@ -26,7 +26,7 @@
 
       <nav class="navbar">
 
-        <ul class="navbar-list">
+        <ul class="navbar-list" style="margin-top:-20px">
 
           <li>
             <a href="index.php" class="navbar-link">Home</a>
@@ -51,7 +51,7 @@
                 <ion-icon name="caret-down-outline"></ion-icon>
               </button>
               <div class="dropdown-content">
-                <a href="tours.php">Tours</a>
+                <a href="tours.php">Suggestions</a>
                 <a href="packetges.php">Packages</a>
                 <a href="shop.php">Shop</a>
               </div>
