@@ -13,8 +13,8 @@ unset($_SESSION['user']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Team</title>
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="./css/pop-up.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/pop-up.css"> 
+     <link rel="stylesheet" href="./css/style.css"> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -51,7 +51,7 @@ unset($_SESSION['user']);
     <div class="row" style="display: flex; justify-content: space-around;align-items:flex-start;flex-wrap:  wrap;">
       <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
         <div class="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt>
-          <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><ahref="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
+          <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
         </div>
         <div class="single_advisor_details_info">
           <h4>Lirik Rexhepi</h4>
