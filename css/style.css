@@ -2666,3 +2666,38 @@ background-color: #081D45;
   display: flex;
   justify-content: space-between;
 }
+
+.place-offers{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  max-width: 500px;
+  width: 440px;
+}
+
+.place-offers > div > label{
+  border: 2px solid var(--viridian-green);
+  background-color: var(--viridian-green);
+  color: white;
+  width: 140px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+  opacity: 1;
+}
+.place-offers > div > label:hover{
+  transition: .2s;
+  box-shadow: 0 0 15px rgba(0, 0, 0, .7);
+}
+
+.place-offers input[type="checkbox"]:checked + label {
+  opacity: 0.5;
+}

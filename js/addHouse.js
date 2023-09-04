@@ -67,7 +67,7 @@ bedDec.addEventListener('click', () => {
 
 
 
-let tabNumber = 4;
+let tabNumber = 0;
 
 const showTab = n => {
     buildings[n].classList.remove('hidden');
@@ -78,11 +78,16 @@ const showTab = n => {
         backStepBtn.classList.remove('hidden');
     }
 
-    if(n == 2){
+    if (n == 2) {
         nextStepBtn.classList.add('hidden');
-    } else{
+    } else {
         nextStepBtn.classList.remove('hidden');
     }
+
+    if(n == (buildings.length - 1)){
+        nextStepBtn.classList.add('hidden');
+        backStepBtn.classList.add('hidden');
+    }   
 
 }
 
@@ -148,7 +153,7 @@ let addressActive = false;
 
 
 const getLocation = () => {
-    return new Promise ((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         tab2Active = true;
         locationActive = true;
         addressActive = false;
@@ -169,7 +174,7 @@ const getLocation = () => {
                 // Update the map iframe URL with the user's location
                 const frameSrc = `https://www.google.com/maps/embed/v1/place?q=${latitude},${longitude}&key=AIzaSyCD9Aj8U-m1cBz-S9sofKC4K13twTyvSkU`;
                 mapFrame.src = frameSrc;
-                
+
                 const locationData = {
                     location: `${latitude},${longitude}`
                 }
@@ -196,8 +201,8 @@ const writeAddress = () => {
         currLoca_wrapper.classList.add('hidden');
         mapWrapper.classList.add('hidden');
         adressInpWrapper.classList.remove('hidden');
-        nextStepBtn.classList.remove('hidden'); 
-        
+        nextStepBtn.classList.remove('hidden');
+
 
         const addressInput = document.querySelector('.adress-input');
 
@@ -211,6 +216,45 @@ const writeAddress = () => {
 
 currLoca_wrapper.addEventListener('click', getLocation);
 writeLocation.addEventListener('click', writeAddress);
+
+
+
+const postTitle = document.querySelector('.post-title');
+const postDescription = document.querySelector('.post-description');
+const postPrice = document.querySelector('.post-price');
+const availableFrom = document.querySelector('.available-from');
+const availableUntil = document.querySelector('.available-until');
+
+
+const placeOffersInputs = document.querySelectorAll('.place-offers > div > input');
+const placeOffersLabels = document.querySelectorAll('.place-offers > div > label');
+
+placeOffersInputs.forEach((input, index) => {
+    input.addEventListener('change', () => {
+        if (input.checked) {
+            placeOffersLabels[index].style.opacity = 0.5;
+        } else {
+            placeOffersLabels[index].style.opacity = 1;
+        }
+    });
+});
+
+
+
+const getCheckedCheckboxes = () => {
+    const placeOffersInputs = document.querySelectorAll('.place-offers > div > input');
+    const checkedCheckboxes = [];
+
+    placeOffersInputs.forEach(input => {
+        if (input.checked) {
+            checkedCheckboxes.push(input.getAttribute('data-place-offers'));
+        }
+    });
+
+    return checkedCheckboxes;
+}
+
+
 
 
 const validate = () => {
@@ -254,7 +298,7 @@ const validate = () => {
             writeLocation.classList.remove('hidden');
             currLoca_wrapper.classList.remove('hidden');
 
-            if(locationActive){
+            if (locationActive) {
                 getLocation().then(locationData => {
                     if (locationData && locationData.location) {
                         alert(locationData.location);
@@ -269,7 +313,7 @@ const validate = () => {
                     console.error('Error getting location:', error);
                     reject(error);
                 });
-            } else if(addressActive){
+            } else if (addressActive) {
                 writeAddress().then(adressData => {
                     if (adressData && adressData.adress) {
                         alert(adressData.adress);
@@ -285,26 +329,84 @@ const validate = () => {
                     reject(error);
                 });
             }
-
-
-
-
         });
     }
 
     if (tabNumber == 3) {
         return new Promise((resolve, reject) => {
-        if (imageUrls.length > 0) {
-            // Alert the user with the image URLs
-            alert( imageUrls);
-            resolve(true);
-        } else {
-            alert("Please upload at least one image.");
-            resolve(false);
-        }
+            if (imageUrls.length > 0) {
+                // Alert the user with the image URLs
+                alert(imageUrls);
+                resolve(true);
+            } else {
+                alert("Please upload at least one image.");
+                resolve(false);
+            }
         });
     }
 
+
+    if (tabNumber == 4) {
+        return new Promise((resolve, reject) => {
+            let titleValid, descriptionValid, priceValid, fromValid, untilValid;
+
+
+            if (postTitle.value.length == 0) {
+                console.log('You need to write the post title');
+                titleValid = false;
+            } else {
+                titleValid = true;
+            }
+
+            if (postDescription.value.length == 0) {
+                console.log('You need to write the post description');
+                descriptionValid = false;
+            } else {
+                descriptionValid = true;
+            }
+
+            if (postPrice.value.length == 0) {
+                console.log('You need to write the price');
+                priceValid = false;
+            } else {
+                priceValid = true;
+            }
+
+            if (availableFrom.value.length == 0) {
+                console.log('You need to write the date that this building is available from');
+                fromValid = false;
+            } else {
+                fromValid = true;
+            }
+
+            if (availableUntil.value.length == 0) {
+                console.log('You need to write the date that this building is available until');
+                untilValid = false;
+            } else {
+                untilValid = true;
+            }
+
+
+            if (titleValid && descriptionValid && priceValid && fromValid && untilValid) {
+                resolve(true);
+            } else {
+                resolve(false);
+            }
+
+        });
+    }
+
+    if (tabNumber == 5) {
+        return new Promise((resolve, reject) => {
+            const checkedBoxes = getCheckedCheckboxes();
+            if(checkedBoxes.length != 0){
+                resolve(true);
+            } else {
+                alert('Please enter at least one thing that this place offers');
+                resolve(false);
+            }
+        });
+    }
 
 }
 
@@ -317,6 +419,60 @@ const nextStep = () => {
         buildings[tabNumber].classList.add('hidden');
 
         tabNumber++;
+
+        let location = '';
+        if(tabNumber == (buildings.length - 1)){
+            if (locationActive) {
+                getLocation().then(locationData => {
+                    if (locationData && locationData.location) {
+                        location = locationData.location;
+                    } else {
+                        location = '';
+                        console.error('Location data is not set.');
+                        reject('Location data is not set.');
+                    }
+                }).catch(error => {
+                    console.error('Error getting location:', error);
+                    reject(error);
+                });
+            } else if (addressActive) {
+                writeAddress().then(adressData => {
+                    if (adressData && adressData.adress) {
+                        location = adressData.adress;
+                    } else {
+                        location = '';
+                        console.error('Location data is not set.');
+                        reject('Location data is not set.');
+                    }
+                }).catch(error => {
+                    console.error('Error getting location:', error);
+                    reject(error);
+                });
+            }
+
+            $.ajax({
+                url: '../php/addHouseLogic.php',
+                type: 'POST',
+                data: {
+                    action: 'insertData',
+                    buildingType: getActiveBuildingType(),
+                    roomsInp: roomsInp.value,
+                    bedInp: bedInp.value,
+                    location: location,
+                    image: imageUrls,
+                    title: postTitle.value,
+                    description: postDescription.value,
+                    price: postPrice.value,
+                    availableFrom: availableFrom.value,
+                    availableUntil: availableUntil.value,
+                    placeOffers: getCheckedCheckboxes()
+                },
+                success: response => {
+                    alert(response);
+                    window.location.reload();
+                }
+            });
+        }
 
         showTab(tabNumber);
     });
