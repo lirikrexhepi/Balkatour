@@ -3,14 +3,14 @@ require '../config.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="en" style="height: 100%;">
+<html lang="en" style="height: 100%; background-color: white !important;">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add house</title>
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/addHouse.css">
     <link rel="stylesheet" href="../css/pop-up.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,47 +18,7 @@ require '../config.php';
     <!-- Tailwind library -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rippleui@1.12.1/dist/css/styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        #gmap-canvas {
-            height: 100%;
-            width: 100%;
-            max-width: 100%;
-        }
 
-        #gmap-canvas img {
-            max-height: none;
-            max-width: none !important;
-            background: none !important;
-        }
-
-        iframe {
-            height: 100%;
-            width: 100%;
-            border: 0;
-        }
-
-        .mapWrapper {
-            max-width: 100%;
-            list-style: none;
-            transition: none;
-            overflow: hidden;
-            width: 500px;
-            height: 300px;
-        }
-
-        input[type="checkbox"] {
-            display: none;
-        }
-
-        .loader {
-            border: 12px solid rgba(0, 0, 0, .5);
-            border-top: 12px solid black;
-        }
-
-        .textBlack{
-            color: black !important;
-        }
-    </style>
 </head>
 
 <body style="height: 100%; ">

@@ -67,7 +67,7 @@ bedDec.addEventListener('click', () => {
 
 
 
-let tabNumber = 0;
+let tabNumber = 4;
 
 const showTab = n => {
     buildings[n].classList.remove('hidden');
