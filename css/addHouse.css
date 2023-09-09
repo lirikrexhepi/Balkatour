@@ -70,9 +70,8 @@
 }
 
 .buildingWrapper>.buildingTab>h1 {
-    color: var(--viridian-green);
+    color: #292929;
     font-family: var(--ff-heebo);
-    margin-block: 20px;
 }
 
 .buildingTab {
@@ -101,7 +100,7 @@
 .buildingType {
     width: 150px;
     height: 150px;
-    border: 2px solid var(--viridian-green);
+    border: 2px solid #292929;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -113,7 +112,7 @@
 
 
 .buildingType:hover {
-    background-color: var(--viridian-green);
+    background-color: #292929;
 }
 
 .buildingType:active {
@@ -123,7 +122,7 @@
 .buildingType>ion-icon,
 .buildingType>i {
     font-size: 50px;
-    color: var(--viridian-green);
+    color: #292929;
     transition: color 0.3s;
 }
 
@@ -133,7 +132,7 @@
 }
 
 .buildingType>p {
-    color: var(--viridian-green);
+    color: #292929;
     font-size: 20px;
     transition: color 0.3s;
 }
@@ -155,15 +154,15 @@
     height: 40px;
     border-radius: 5px;
     background-color: white;
-    border: 2px solid var(--viridian-green);
-    color: var(--viridian-green);
+    border: 2px solid #292929;
+    color: #292929;
 }
 
 .buildingType-action>button:hover {
     transition: .2s;
-    background-color: var(--viridian-green);
+    background-color: #292929;
     color: white;
-    border: 2px solid var(--viridian-green);
+    border: 2px solid #292929;
 
 }
 
@@ -173,7 +172,7 @@
 
 
 .building-active {
-    background-color: var(--viridian-green);
+    background-color: #292929;
 }
 
 .building-active:active {
@@ -183,7 +182,7 @@
 .building-active>ion-icon,
 .building-active>i {
     font-size: 50px;
-    color: var(--viridian-green);
+    color: #292929;
     transition: color 0.3s;
 }
 
@@ -193,7 +192,7 @@
 }
 
 .building-active>p {
-    color: var(--viridian-green);
+    color: #292929;
     font-size: 20px;
     transition: color 0.3s;
 }
@@ -217,7 +216,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid var(--viridian-green);
+    border: 2px solid #292929;
     width: 400px;
     height: 120px;
     padding: 15px;
@@ -232,12 +231,12 @@
 
 .rooms>div>i {
     font-size: 50px;
-    color: var(--viridian-green);
+    color: #292929;
 }
 
 .rooms>div>label {
     font-size: 22px;
-    color: var(--viridian-green);
+    color: #292929;
 }
 
 .roomsAction {
@@ -249,7 +248,7 @@
 .roomsAction>button {
     width: 40px;
     height: 40px;
-    background-color: var(--viridian-green);
+    background-color: #292929;
     color: white;
     font-size: 20px;
 }
@@ -272,9 +271,9 @@
 
 
 .roomsAction>input {
-    border-top: 2px solid var(--viridian-green);
-    border-bottom: 2px solid var(--viridian-green);
-    color: var(--viridian-green);
+    border-top: 2px solid #292929;
+    border-bottom: 2px solid #292929;
+    color: #292929;
     padding: 5px;
     width: 50px;
     height: 40px;
@@ -296,26 +295,25 @@
 .hosueInfo {
     display: flex;
     flex-direction: column;
-    gap: 15px;
 }
 
 .selectLocation {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid var(--viridian-green);
+    border: 2px solid #292929;
     width: 400px;
     height: 120px;
     padding: 15px;
     border-radius: 5px;
-    color: var(--viridian-green);
+    color: #292929;
     user-select: none;
     cursor: pointer;
 }
 
 .selectLocation:hover {
     transition: .2s;
-    background-color: var(--viridian-green);
+    background-color: #292929;
     color: white;
 }
 
@@ -339,10 +337,10 @@
 .fileLabel {
     width: 150px;
     height: 150px;
-    border: 2px solid var(--viridian-green);
+    border: 2px solid #292929;
     border-radius: 15px;
     color: white;
-    background-color: var(--viridian-green);
+    background-color: #292929;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -381,15 +379,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 5px;
 }
 
 .post-last-info .post-title {
-    border: 2px solid var(--viridian-green);
+    border: 2px solid #292929;
     width: 100%;
     height: 40px;
     padding-inline: 5px;
-    color: var(--viridian-green);
+    color: #292929;
     border-radius: 5px;
 }
 
@@ -401,8 +399,8 @@
     width: 100%;
     height: 100px;
     background-color: transparent;
-    border: 2px solid var(--viridian-green);
-    color: var(--viridian-green);
+    border: 2px solid #292929;
+    color: #292929;
     padding: 5px;
     border-radius: 5px;
     resize: none;
@@ -417,7 +415,7 @@
 }
 
 .description-wrapper>label {
-    color: var(--viridian-green);
+    color: #292929;
 }
 
 .price-wrapper {
@@ -431,7 +429,7 @@
 
 .price-wrapper>label {
     font-size: 14px;
-    color: var(--viridian-green);
+    color: #292929;
     margin-bottom: 0 !important;
 }
 
@@ -440,14 +438,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid var(--viridian-green);
+    border: 2px solid #292929;
     border-radius: 5px;
     padding: 5px;
     height: 40px;
 }
 
 .price-wrapper>div>label {
-    color: var(--viridian-green);
+    color: #292929;
     margin-left: 5px;
     font-size: 22px;
     margin-bottom: 0 !important;
@@ -456,8 +454,8 @@
 .post-price {
     width: 100%;
     height: 40px;
-    color: var(--viridian-green);
-    border-block: 2px solid var(--viridian-green);
+    color: #292929;
+    border-block: 2px solid #292929;
 }
 
 .post-price:focus {
@@ -473,15 +471,15 @@
 .available-from-wrapper>label,
 .available-until-wrapper>label {
     font-size: 14px;
-    color: var(--viridian-green);
+    color: #292929;
     margin-bottom: 0 !important;
 }
 
 .available-from-wrapper>input,
 .available-until-wrapper>input {
     width: 145px;
-    border: 2px solid var(--viridian-green);
-    color: var(--viridian-green);
+    border: 2px solid #292929;
+    color: #292929;
     border-radius: 5px;
     padding: 5px;
     background: white;
@@ -509,8 +507,8 @@
 }
 
 .place-offers>div>label {
-    border: 2px solid var(--viridian-green);
-    background-color: var(--viridian-green);
+    border: 2px solid #292929;
+    background-color: #292929;
     color: white;
     width: 140px;
     display: flex;
@@ -538,7 +536,7 @@
     width: 100px;
     height: 100px;
     border: 12px solid rgba(0, 0, 0, .5);
-    border-top: 12px solid black;
+    border-top: 12px solid #292929;
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
@@ -575,9 +573,9 @@ iframe {
     max-width: 100%;
     list-style: none;
     transition: none;
-    overflow: hidden;
     width: 500px;
     height: 300px;
+    margin-block: 30px;
 }
 
 input{
@@ -593,4 +591,171 @@ input[type="checkbox"] {
 }
 h1{
     font-size: 26px !important;
+}
+
+.adressInpWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 300px;
+}
+
+.adressInpWrapper > div > input{
+    border: 2px solid #292929;
+    width: 100%;
+    padding: 5px;
+    color: #292929;
+    border-radius: 5px;
+}
+
+.adressInpWrapper > div > input:focus{
+    outline: none;
+}
+
+.adressInpWrapper > div > select{
+    width: 100%;
+    border: 2px solid #292929;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: white;
+    color: #292929;
+}
+
+.adressInpWrapper > div > select:focus{
+    outline: none;
+}
+.mapWrapper  .state{
+    margin-right: 20px;
+
+}
+
+.mapWrapper > .mapWrapper-select{
+    display: flex;
+}
+.mapWrapper > .mapWrapper-select > div > select{
+    margin-block: 5px;
+    width: 240px;
+    height: 40px;
+    background-color: white;
+    color: #292929;
+    border: 2px solid #292929;
+    border-radius: 5px;
+}
+.mapWrapper > .mapWrapper-select > div > select:focus{
+    outline: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    border-radius: 5px;
+    background-color: #292929; /* Change this to your desired text color */
+    cursor: pointer;
+}
+
+@media (min-width: 320px) and (max-width: 530px){
+    body{
+        height: fit-content !important;
+    }
+    .buildings{
+        flex-direction: column;
+    }
+
+    .buildingWrapper > .buildingTab > h1{
+        font-size: 24px !important;
+        text-align: center;
+        margin-bottom: 10px !important;
+        margin-top: 20px;
+    }
+
+    .buildingType > p{
+        font-size: 18px !important;
+    }
+    .buildingType>ion-icon, 
+    .buildingType>i {
+        font-size: 40px !important;
+    }
+
+    .buildingType{
+        width: 120px !important;
+        height: 120px !important;
+    }
+
+    .buildingTab{
+        width: 100% !important;
+    }
+
+    .buildingType-action{
+        width: 100% !important;
+    }
+
+    .mapWrapper-select {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .mapWrapper > .mapWrapper-select > div > select  {
+        width: 100%;
+    }
+
+    .responsive_location{
+        margin-top: 130px !important;
+        margin-bottom: 30px;
+    }
+
+    .available-dates{
+        gap: 10px;
+    }
+    .available-from-wrapper,
+    .available-until-wrapper{
+        width: 100% !important;
+        
+    }
+
+    .available-from-wrapper>input, 
+    .available-until-wrapper>input{
+        width: 100% !important;
+    } 
+}
+
+@media (min-width: 425px) and (max-width: 470px){
+    .place-offers>div>label{
+        width: 180px !important;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 425px){
+    .rooms{
+        min-width: 230px;
+        width: 100%;
+        flex-direction: column;
+        gap: 20px;
+        height: fit-content;
+    }
+
+    .selectLocation{
+        min-width: 230px;
+        width: 100%;
+        flex-direction: column;
+        gap: 20px;
+        height: fit-content;
+    }
+
+    .file-preview{
+        width: 100% !important;
+    }
+
+    .available-dates{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .available-from-wrapper > input,
+    .available-until-wrapper > input{
+        width: 100% !important;
+    }
+
+    .place-offers{
+        width: 320px;
+    }
 }

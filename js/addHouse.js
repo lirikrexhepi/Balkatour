@@ -65,80 +65,69 @@ bedDec.addEventListener('click', () => {
 });
 
 
+const state = document.querySelector('.state');
+const city_select = document.querySelector('.city');
 
+state.addEventListener('change', () => {
+    if (state.value.length != 0) {
+        $.ajax({
+            url: '../php/registerLogic.php',
+            type: 'POST',
+            data: {
+                action: 'getCities',
+                state: state.value
+            },
+            success: response => {
+                response = JSON.parse(response);
+                city_select.innerHTML = "<option value=''>Select city</option>";
 
-let tabNumber = 4;
-
-const showTab = n => {
-    buildings[n].classList.remove('hidden');
-
-    if (n == 0) {
-        backStepBtn.classList.add('hidden');
-    } else {
-        backStepBtn.classList.remove('hidden');
+                response.forEach(city => {
+                    let optionElement = document.createElement('option');
+                    optionElement.textContent = city;
+                    optionElement.value = city;
+                    city_select.appendChild(optionElement);
+                });
+            },
+            error: (xhr, status, error) => {
+                console.log("AJAX Error: " + error);
+            }
+        });
     }
-
-    if (n == 2) {
-        nextStepBtn.classList.add('hidden');
-    } else {
-        nextStepBtn.classList.remove('hidden');
-    }
-
-    if(n == (buildings.length - 1)){
-        nextStepBtn.classList.add('hidden');
-        backStepBtn.classList.add('hidden');
-    }   
-
-}
-
-showTab(tabNumber);
-
-
-const fileInput = document.getElementById("file");
-const filePreview = document.getElementById("filePreview");
-const MAX_IMAGES = 10;
-let displayedImages = 0;
-const imageUrls = []; // Array to store image URLs
-
-fileInput.addEventListener("change", function () {
-    const files = this.files;
-
-    if (displayedImages + files.length > MAX_IMAGES) {
-        alert(`You can only display a maximum of ${MAX_IMAGES} images.`);
-        return;
-    }
-
-    for (let i = 0; i < files.length; i++) {
-        const file = files[i];
-
-        if (file.type.startsWith("image/")) {
-            const reader = new FileReader();
-
-            reader.onload = function (event) {
-                const imageUrl = event.target.result;
-                const img = document.createElement("img");
-                img.src = imageUrl;
-
-                // Append the new image preview
-                filePreview.appendChild(img);
-                displayedImages++; // Increment the count of displayed images
-
-                // Store the image URL in the array
-                imageUrls.push(imageUrl);
-
-            };
-
-            reader.readAsDataURL(file);
-        } else {
-            alert(`File ${file.name} is not an image and will be skipped.`);
-        }
-    }
-
-    // Clear the file input after processing
-    this.value = "";
 });
 
+const address_state = document.querySelector('.address_state');
+const address_city_select = document.querySelector('.address_city_select');
 
+address_state.addEventListener('change', () => {
+    if (address_state.value.length != 0) {
+        $.ajax({
+            url: '../php/registerLogic.php',
+            type: 'POST',
+            data: {
+                action: 'getCities',
+                state: address_state.value
+            },
+            success: response => {
+                response = JSON.parse(response);
+                address_city_select.innerHTML = "<option value=''>Select city</option>";
+
+                response.forEach(city => {
+                    let optionElement = document.createElement('option');
+                    optionElement.textContent = city;
+                    optionElement.value = city;
+                    address_city_select.appendChild(optionElement);
+                });
+            },
+            error: (xhr, status, error) => {
+                console.log("AJAX Error: " + error);
+            }
+        });
+    }
+});
+
+let tab2Active = false;
+let locationActive = false;
+let addressActive = false;
 
 const currLoca_wrapper = document.querySelector('.currentLocation');
 const mapWrapper = document.querySelector('.mapWrapper');
@@ -147,9 +136,7 @@ const mapFrame = document.querySelector('.mapFrame');
 const adressInpWrapper = document.querySelector('.adressInpWrapper');
 
 
-let tab2Active = false;
-let locationActive = false;
-let addressActive = false;
+const actionBtns = document.querySelector('.buildingType-action');
 
 
 const getLocation = () => {
@@ -158,12 +145,19 @@ const getLocation = () => {
         locationActive = true;
         addressActive = false;
 
+        actionBtns.style.width = '500px';
+        actionBtns.style.justifyContent = 'space-between';
+        actionBtns.style.marginTop = '50px';
+
+        actionBtns.classList.add('responsive_location');
 
         writeLocation.classList.add('hidden');
         currLoca_wrapper.classList.add('hidden');
         mapWrapper.classList.remove('hidden');
         adressInpWrapper.classList.add('hidden'); // Hide address input, if previously shown
         nextStepBtn.classList.remove('hidden');
+
+
 
         // Get the user's current location
         if (navigator.geolocation) {
@@ -176,7 +170,9 @@ const getLocation = () => {
                 mapFrame.src = frameSrc;
 
                 const locationData = {
-                    location: `${latitude},${longitude}`
+                    location: `${latitude},${longitude}`,
+                    state: state.value,
+                    city: city_select.value
                 }
 
                 resolve(locationData);
@@ -197,6 +193,11 @@ const writeAddress = () => {
         locationActive = false;
         addressActive = true;
         tab2Active = true;
+
+        actionBtns.style.width = '300px';
+        actionBtns.style.justifyContent = 'space-between';
+        actionBtns.classList.remove('responsive_location');
+
         writeLocation.classList.add('hidden');
         currLoca_wrapper.classList.add('hidden');
         mapWrapper.classList.add('hidden');
@@ -207,7 +208,9 @@ const writeAddress = () => {
         const addressInput = document.querySelector('.adress-input');
 
         const adressData = {
-            adress: addressInput.value
+            adress: addressInput.value,
+            state: address_state.value,
+            city: address_city_select.value
         }
 
         resolve(adressData);
@@ -216,6 +219,111 @@ const writeAddress = () => {
 
 currLoca_wrapper.addEventListener('click', getLocation);
 writeLocation.addEventListener('click', writeAddress);
+
+
+let tabNumber = 0;
+
+
+
+const showTab = n => {
+    buildings[n].classList.remove('hidden');
+
+    actionBtns.style.marginTop = '';
+    actionBtns.classList.remove('responsive_location');
+    if (n == 0) {
+        actionBtns.style.width = '480px';
+        actionBtns.style.justifyContent = 'end';
+        backStepBtn.classList.add('hidden');
+    } else {
+        backStepBtn.classList.remove('hidden');
+    }
+
+    if(n == 1) {
+        actionBtns.style.width = '400px';
+        actionBtns.style.justifyContent = 'space-between';
+    }
+
+    if (n == 2) {
+        nextStepBtn.classList.add('hidden');
+        actionBtns.style.width = '400px';
+        actionBtns.style.justifyContent = 'start';
+    } else {
+        nextStepBtn.classList.remove('hidden');
+    }
+
+
+    
+    if(n == 3 ){
+        actionBtns.style.width = '400px';
+        actionBtns.style.justifyContent = 'space-between';
+    }
+
+    if(n == 4){
+        actionBtns.style.width = '300px';
+        actionBtns.style.justifyContent = 'space-between';
+    }
+
+    if(n == 5){
+        actionBtns.style.width = '440px';
+        actionBtns.style.justifyContent = 'space-between';
+    }
+
+    if(n == (buildings.length - 1)){
+        nextStepBtn.classList.add('hidden');
+        backStepBtn.classList.add('hidden');
+    }   
+
+}
+
+showTab(tabNumber);
+
+
+const fileInput = document.getElementById("file");
+const filePreview = document.getElementById("filePreview");
+const MAX_IMAGES = 10;
+let displayedImages = 0;
+
+// Create an array to store image URLs
+const imageUrls = [];
+
+fileInput.addEventListener("change", function () {
+    const files = this.files;
+
+    if (displayedImages + files.length > MAX_IMAGES) {
+        alert(`You can only display a maximum of ${MAX_IMAGES} images.`);
+        return;
+    }
+
+    for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+
+
+        if (file.type.startsWith("image/")) {
+            const reader = new FileReader();
+
+            reader.onload = function (event) {
+                const imageUrl = event.target.result;
+                const img = document.createElement("img");
+                img.src = imageUrl;
+
+                // Append the new image preview
+                filePreview.appendChild(img);
+                displayedImages++; // Increment the count of displayed images
+
+                // Store the image URL in the array
+                imageUrls.push(imageUrl);
+            };
+
+            reader.readAsDataURL(file);
+        } else {
+            alert(`File ${file.name} is not an image and will be skipped.`);
+        }
+    }
+});
+
+
+
+
 
 
 
@@ -255,16 +363,30 @@ const getCheckedCheckboxes = () => {
 }
 
 
-
+const buildingError = document.querySelector('.building-type-error');
+const roomsError = document.querySelector('.rooms-error');
+const bedsError = document.querySelector('.beds-error');
+const loc_stateError = document.querySelector('.location-state-error');
+const loc_cityError = document.querySelector('.location-city-error');
+const addressError = document.querySelector('.address-error');
+const add_stateError = document.querySelector('.address-state-error');
+const add_cityError = document.querySelector('.address-city-error');
+const iamgesError = document.querySelector('.images-error');
+const titleError = document.querySelector('.title-error');
+const descriptionError = document.querySelector('.description-error');
+const priceError = document.querySelector('.price-error');
+const avail_fromError = document.querySelector('.avail-from-error');
+const avail_untilError = document.querySelector('.avail-until-error');
 
 const validate = () => {
     if (tabNumber == 0) {
         return new Promise((resolve, reject) => {
             const activeBuildingType = getActiveBuildingType();
             if (activeBuildingType) {
+                buildingError.classList.add('hidden');
                 resolve(true);
             } else {
-                alert('Choose the building type');
+                buildingError.classList.remove('hidden');
                 resolve(false);
             }
         });
@@ -274,17 +396,33 @@ const validate = () => {
         return new Promise((resolve, reject) => {
             if (roomsInp.value == 0 || bedInp.value == 0) {
                 if (roomsInp.value == 0 && bedInp.value == 0) {
-                    alert('Please fill the information');
+                    roomsError.textContent = '*Number of rooms is required!';
+                    roomsError.classList.remove('hidden');
+                    bedsError.textContent = '*Number of beds is required!';
+                    bedsError.classList.remove('hidden');
+                    
                     resolve(false);
                 } else if (roomsInp.value == 0) {
-                    alert('Please fill the rooms info..');
+                    roomsError.textContent = '*Number of rooms is required!';
+                    roomsError.classList.remove('hidden');
+                    bedsError.textContent = '';
+                    bedsError.classList.add('hidden');
+
                     resolve(false);
                 } else if (bedInp.value == 0) {
-                    alert('Please fill the beds info');
+                    roomsError.textContent = '';
+                    roomsError.classList.add('hidden');
+                    bedsError.textContent = '*Number of beds is required!';
+                    bedsError.classList.remove('hidden');
                     resolve(false);
                 }
 
             } else {
+                roomsError.textContent = '';
+                roomsError.classList.add('hidden');
+                bedsError.textContent = '';
+                bedsError.classList.add('hidden');
+
                 resolve(true);
             }
         });
@@ -300,14 +438,53 @@ const validate = () => {
 
             if (locationActive) {
                 getLocation().then(locationData => {
-                    if (locationData && locationData.location) {
-                        alert(locationData.location);
-                        resolve(true);
-                    } else {
-                        resolve(false);
+                    if (locationData.location && locationData.state && locationData.city) {
+                        loc_stateError.textContent = '';
+                        loc_stateError.classList.add('hidden');
+                        loc_cityError.textContent = '';
+                        loc_cityError.classList.add('hidden');
 
-                        console.error('Location data is not set.');
-                        reject('Location data is not set.');
+                        state.classList.remove('border-rose-500');
+                        city_select.classList.remove('border-rose-500');
+
+                        resolve(true);
+                    } else if(!locationData.state || !locationData.city){
+                        if (!locationData.state && !locationData.city){
+
+                            loc_stateError.textContent = '*State is required!';
+                            loc_stateError.classList.remove('hidden');
+    
+                            loc_cityError.textContent = '*City is required!';
+                            loc_cityError.classList.remove('hidden');
+
+                            state.classList.add('border-rose-500');
+                            city_select.classList.add('border-rose-500');
+
+                            resolve(false);
+                        } else if (!locationData.state) {
+                            loc_stateError.textContent = '*State is required!';
+                            loc_stateError.classList.remove('hidden');
+                            
+                            loc_cityError.textContent = '';
+                            loc_cityError.classList.add('hidden');
+
+                            state.classList.add('border-rose-500');
+                            city_select.classList.remove('border-rose-500');
+
+                            resolve(false);
+                        } else if (!locationData.city){
+                            loc_stateError.textContent = '';
+                            loc_stateError.classList.add('hidden');
+
+                            loc_cityError.textContent = '*City is required!';
+                            loc_cityError.classList.remove('hidden');
+
+                            state.classList.remove('border-rose-500');
+                            city_select.classList.add('border-rose-500');
+
+                            resolve(false);
+                        }
+
                     }
                 }).catch(error => {
                     console.error('Error getting location:', error);
@@ -315,14 +492,44 @@ const validate = () => {
                 });
             } else if (addressActive) {
                 writeAddress().then(adressData => {
-                    if (adressData && adressData.adress) {
-                        alert(adressData.adress);
+                    if (adressData.adress && adressData.state && adressData.city) {
+                        addressError.textContent = '';
+                        addressError.classList.add('hidden');
+
+                        add_stateError.textContent = '';
+                        add_stateError.classList.add('hidden');
+
+                        add_cityError.textContent = '';
+                        add_cityError.classList.add('hidden');
+
                         resolve(true);
                     } else {
-                        resolve(false);
+                        if (!adressData.adress){
+                            addressError.textContent = '*Address is required!';
+                            addressError.classList.remove('hidden');
 
-                        console.error('Location data is not set.');
-                        reject('Location data is not set.');
+                        } else{
+                            addressError.textContent = '';
+                            addressError.classList.add('hidden');
+                        }
+
+                        if(!adressData.state){
+                            add_stateError.textContent = '*State is required!';
+                            add_stateError.classList.remove('hidden');
+                        } else{
+                            add_stateError.textContent = '';
+                            add_stateError.classList.add('hidden');
+                        }
+
+                        if (!adressData.city){
+                            add_cityError.textContent = '*City is required!';
+                            add_cityError.classList.remove('hidden');
+                        } else{
+                            add_cityError.textContent = '';
+                            add_cityError.classList.add('hidden');
+                        }
+
+                        resolve(false);
                     }
                 }).catch(error => {
                     console.error('Error getting location:', error);
@@ -335,11 +542,12 @@ const validate = () => {
     if (tabNumber == 3) {
         return new Promise((resolve, reject) => {
             if (imageUrls.length > 0) {
-                // Alert the user with the image URLs
-                alert(imageUrls);
+                iamgesError.textContent = '';
+                iamgesError.classList.add('hidden');
                 resolve(true);
-            } else {
-                alert("Please upload at least one image.");
+            }  else {
+                iamgesError.textContent = '*Upload at least one image!';
+                iamgesError.classList.remove('hidden');
                 resolve(false);
             }
         });
@@ -352,37 +560,52 @@ const validate = () => {
 
 
             if (postTitle.value.length == 0) {
-                console.log('You need to write the post title');
+                titleError.textContent = '*Required';
+                titleError.classList.remove('hidden');
                 titleValid = false;
             } else {
+                titleError.textContent = '';
+                titleError.classList.add('hidden');
                 titleValid = true;
             }
 
             if (postDescription.value.length == 0) {
-                console.log('You need to write the post description');
+                descriptionError.textContent = '*Description required';
+                descriptionError.classList.remove('hidden');
                 descriptionValid = false;
             } else {
+                descriptionError.textContent = '';
+                descriptionError.classList.add('hidden');
                 descriptionValid = true;
             }
 
             if (postPrice.value.length == 0) {
-                console.log('You need to write the price');
+                priceError.textContent = '*Price is required';
+                priceError.classList.remove('hidden');
                 priceValid = false;
             } else {
+                priceError.textContent = '';
+                priceError.classList.add('hidden');
                 priceValid = true;
             }
 
             if (availableFrom.value.length == 0) {
-                console.log('You need to write the date that this building is available from');
+                avail_fromError.textContent = '*Required';
+                avail_fromError.classList.remove('hidden');
                 fromValid = false;
             } else {
+                avail_fromError.textContent = '';
+                avail_fromError.classList.add('hidden');
                 fromValid = true;
             }
 
             if (availableUntil.value.length == 0) {
-                console.log('You need to write the date that this building is available until');
+                avail_untilError.textContent = '*Required';
+                avail_untilError.classList.remove('hidden');
                 untilValid = false;
             } else {
+                avail_untilError.textContent = '';
+                avail_untilError.classList.add('hidden');
                 untilValid = true;
             }
 
@@ -420,59 +643,80 @@ const nextStep = () => {
 
         tabNumber++;
 
-        let location = '';
-        if(tabNumber == (buildings.length - 1)){
-            if (locationActive) {
-                getLocation().then(locationData => {
-                    if (locationData && locationData.location) {
-                        location = locationData.location;
-                    } else {
-                        location = '';
-                        console.error('Location data is not set.');
-                        reject('Location data is not set.');
-                    }
-                }).catch(error => {
-                    console.error('Error getting location:', error);
-                    reject(error);
-                });
-            } else if (addressActive) {
-                writeAddress().then(adressData => {
-                    if (adressData && adressData.adress) {
-                        location = adressData.adress;
-                    } else {
-                        location = '';
-                        console.error('Location data is not set.');
-                        reject('Location data is not set.');
-                    }
-                }).catch(error => {
-                    console.error('Error getting location:', error);
-                    reject(error);
-                });
-            }
+        // let location = '';
+        // if(tabNumber == (buildings.length - 1)){
+        //     if (locationActive) {
+        //         getLocation().then(locationData => {
+        //             if (locationData && locationData.location) {
+        //                 location = locationData.location;
+        //             } else {
+        //                 location = '';
+        //                 console.error('Location data is not set.');
+        //                 reject('Location data is not set.');
+        //             }
+        //         }).catch(error => {
+        //             console.error('Error getting location:', error);
+        //             reject(error);
+        //         });
+        //     } else if (addressActive) {
+        //         writeAddress().then(adressData => {
+        //             if (adressData && adressData.adress) {
+        //                 location = adressData.adress;
+        //             } else {
+        //                 location = '';
+        //                 console.error('Location data is not set.');
+        //                 reject('Location data is not set.');
+        //             }
+        //         }).catch(error => {
+        //             console.error('Error getting location:', error);
+        //             reject(error);
+        //         });
+        //     }
 
-            $.ajax({
-                url: '../php/addHouseLogic.php',
-                type: 'POST',
-                data: {
-                    action: 'insertData',
-                    buildingType: getActiveBuildingType(),
-                    roomsInp: roomsInp.value,
-                    bedInp: bedInp.value,
-                    location: location,
-                    image: imageUrls,
-                    title: postTitle.value,
-                    description: postDescription.value,
-                    price: postPrice.value,
-                    availableFrom: availableFrom.value,
-                    availableUntil: availableUntil.value,
-                    placeOffers: getCheckedCheckboxes()
-                },
-                success: response => {
-                    alert(response);
-                    window.location.reload();
-                }
-            });
-        }
+        //     // Create a new FormData object
+        //     let formData = new FormData();
+
+        //     // Append other form data to the FormData object
+        //     formData.append('action', 'insertData');
+        //     formData.append('buildingType', getActiveBuildingType());
+        //     formData.append('roomsInp', roomsInp.value);
+        //     formData.append('bedInp', bedInp.value);
+        //     formData.append('location', location);
+        //     formData.append('state', state.value);
+        //     formData.append('city', city_select.value);
+        //     formData.append('title', postTitle.value);
+        //     formData.append('description', postDescription.value);
+        //     formData.append('price', postPrice.value);
+        //     formData.append('availableFrom', availableFrom.value);
+        //     formData.append('availableUntil', availableUntil.value);
+        //     formData.append('placeOffers', getCheckedCheckboxes());
+
+        //     // Loop through selected files, convert them to Base64, and append to FormData
+        //     for (let i = 0; i < imageUrls.length; i++) {
+        //         const file = imageUrls[i];
+        //         const reader = new FileReader();
+        //         reader.onload = function (event) {
+        //             const base64Image = event.target.result.split(',')[1]; // Get base64 data
+        //             formData.append(`image_${i + 1}`, base64Image); // Append base64 image to FormData
+        //         };
+        //         reader.readAsDataURL(file);
+        //     }
+
+        //     // Make the AJAX request with FormData
+        //     $.ajax({
+        //         url: '../php/addHouseLogic.php',
+        //         type: 'POST',
+        //         data: formData,
+        //         processData: false, // Prevent jQuery from processing data
+        //         contentType: false, // Prevent jQuery from setting content type
+        //         success: function (response) {
+        //             console.log(response);
+        //         }
+        //     });
+
+
+
+        // }
 
         showTab(tabNumber);
     });
