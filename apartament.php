@@ -1,10 +1,9 @@
-<!-- <?php
-require './config.php';
-
-if (isset($_POST['logout'])) {
-  unset($_SESSION['user']);
-}
-?> -->
+<?php
+  require './config.php';
+  if (isset($_POST['logout'])) {
+    unset($_SESSION['user']);
+  }
+?> 
 <!DOCTYPE html>
 <html lang="en">
 

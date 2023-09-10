@@ -660,9 +660,18 @@ form .search-button .btn-search:hover {
 
 
 
+.card-rating {
+  background: var(--mikado-yellow);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  width: 60px;
+  border-radius: 5px;
+}
+ .card-rating ion-icon { font-size: 14px; margin-left:5px; color: white; }
+ .card-rating data { margin-left: 4px;font-size: 14px;color: white;  }
 
-
-/*-----------------------------------*\
+ /*-----------------------------------*\
   #ABOUT
 \*-----------------------------------*/
 
@@ -1606,4 +1615,150 @@ span{
 .hire:hover{
   background: #000;
   border: 1px solid #4070f4;
+}
+
+.div-img-jewlery{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1300px;
+}
+
+.img-jewlery img{
+  width: 100px;
+  transition: transform .2s; 
+  height: 100px;
+  border-radius: 100%;
+}
+
+.img-jewlery p{
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.img-jewlery:hover{
+  border-bottom: 2px solid black;
+}
+
+.img-jewlery img:hover{
+  transform: scale(1.2);
+
+}
+
+.select-jew{
+  width: 120px;
+  height: 40px;
+  border: 2px solid black;
+  border-radius: 10px;
+  color: black;
+  font-weight: 600;
+  margin-left: 20px;
+}
+
+.selcet-div{
+  margin-top:30px;
+  margin-left: 132px;
+}
+
+.select-jew option{
+  font-weight: 600;
+  border-radius: none;
+}
+
+.div-shop{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  padding: 0 100px;
+}
+
+.div-inside-shop img{
+  width: 350px;
+  height: 450px;
+  transition: transform .2s; 
+}
+
+
+.div-inside-shop .text-jew{
+  font-size: 15px;
+  color: gray;
+  font-weight: 500;
+  padding: 10px 10px 10px 0px;
+}
+
+.div-inside-shop img:hover .text-jew{
+  transform: translateY(20px)
+}
+
+
+.div-inside-shop img:hover{
+  transform: scale(1.01);
+}
+
+@media (max-width: 1200px) {
+  .div-inside-shop img{
+    width: 100%;
+    height: auto;
+  }
+}
+
+.cmimi{
+  display: flex;
+  justify-content: space-around;
+  max-width:  100px;
+  margin-top: 10px;
+}
+.cmimi2{
+  display: flex;
+  justify-content: space-around;
+  max-width:  120px;
+  margin-top: 10px;
+}
+.cmimi2 .from{
+  font-size: 14px;
+}
+.cmimi .from{
+  font-size: 14px;
+}
+
+.p2-cmimi{
+  color: #1BBC9B;
+  font-size: 14.5px;
+  text-decoration: line-through;
+}
+
+.p1-cmimi{
+ font-size: 17px;
+ margin-top: -2px;
+ color:#070a57;
+ font-weight: 600;
+}
+
+.buttons-jew{
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.add-to-cart{
+  padding: 5px 20px;
+  border: 2px solid var(--mikado-yellow);
+  border-radius: 20px;
+  background-color: transparent;
+  color: var(--mikado-yellow) ;
+}
+
+.add-to-cart:hover{
+  border: 2px solid var(--mikado-yellow);
+  border-radius: 20px;
+  background-color: var(--mikado-yellow);
+  color: white ;
+  transition: var(--transition-1);
+}
+
+.more-like-this{
+  color: #070a57;
+  font-weight: 500;
+  margin-left: 10px;
 }
