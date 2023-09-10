@@ -24,7 +24,7 @@
                 <ion-icon name="caret-down-outline"></ion-icon>
               </button>
               <div class="dropdown-content">
-                <a href="ourTeam.php">BalkaTour</a>
+                <a href="Balkatour.php">BalkaTour</a>
                 <a href="ourTeam.php">Our Team</a>
               </div>
             </div>
