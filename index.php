@@ -232,24 +232,6 @@ if (isset($_POST['logout'])) {
       </section>
 
       <!-- About Us end -->
-
-      <!-- Banner with data -->
-      <br><br><br><br><br>
-      <!-- <div class="banner3-background" alt="banner">
-        <div class="top-circle-image">
-          <p class="p-banner4 animate__animated animate__zoomIn">Why BALKATOUR is the best platform for traveling?</p>
-          <center>
-            <p class="p-banner04 animate__animated animate__zoomIn">The pourpes of this platform is to help tourist feel safe while visiting a new country, shop handmade pieces by locals, view where the bus is from your location etc. </p>
-          </center>
-          <div class="div-circle-image">
-            <img src="./assets/images/100.png" class="circle-image animate__animated animate__zoomIn">
-            <img src="./assets/images/20.1.png" class="circle-image animate__animated animate__zoomIn">
-            <img src="./assets/images/20.2.png" class="circle-image animate__animated animate__zoomIn">
-            <img src="./assets/images/40.png" class="circle-image animate__animated animate__zoomIn">
-          </div>
-        </div>
-      </div> -->
-      <!-- end of banner with data -->
       <!-- Tours -->
       <br><br><br>
       <section class="section popular">
