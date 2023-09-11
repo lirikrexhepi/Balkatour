@@ -45,7 +45,7 @@ unset($_SESSION['user']);
             <div class="container">
                 <ul class="destination-list">
                     <li>
-                        <a href="./handmade.html" class="destination-card">
+                        <a href="./handmade.php" class="destination-card">
                             <figure class="card-banner">
                                 <img src="./assets/images/hand.jpg" width="1110" height="480" loading="lazy" alt="Kuala Lumpur, Malaysia"  class="img-cover">
                             </figure>
@@ -56,7 +56,7 @@ unset($_SESSION['user']);
                     </li>
 
                     <li>
-                        <a href="./traditionalClothes.html" class="destination-card">
+                        <a href="./traditionalClothes.php" class="destination-card">
                             <figure class="card-banner">
                                 <img src="./assets/images/kosova-clothes.jpg" width="1110" height="480" loading="lazy" alt="Kuala Lumpur, Malaysia"  class="img-cover">
                             </figure>
