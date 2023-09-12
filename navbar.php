@@ -61,7 +61,6 @@
           <li>
             <a href="chat.php" class="navbar-link">Chat</a>
           </li>
-
         </ul>
 
         <div class="popup-container" style="margin-right: 5%;">
