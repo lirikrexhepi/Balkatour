@@ -46,8 +46,6 @@ unset($_SESSION['user']);
     <center>
       <p class="section-subtitle" style="padding-top: 30px;">Choose our Packetges</p>
     </center>
-
-    <br><br>
     <section class="section popular">
         <div class="container">
 
@@ -161,7 +159,6 @@ unset($_SESSION['user']);
           </ul>
         </div>
       </section>
-      <br><br>
 
       <center><button style="padding:10px 20px; background-color:#FFD205; color:white; border-radius:5px">Load More</button></center>
 

@@ -48,13 +48,13 @@
     <br>
     <div class="team-container">
       <div class="team-card">
-        <center><img src="./assets/images/faces/face1.jpg" alt="Person 1"></center>
+        <center><img src="./assets/images/faces/face01.jpg" alt="Person 1"></center>
         <h2>Leart Ramadani</h2>
         <p>Kosova</p>
         <center><a href="chatDetails.php"><button id="chat" style="width: auto; background-color: #1BBC9B; padding: 10px 20px; color: white; border-radius: 5px; margin-top: 10px;">Chat Here</button></a></center>
       </div>
       <div class="team-card">
-        <center><img src="./assets/images/faces/face2.jpg" alt="Person 2"></center>
+        <center><img src="./assets/images/faces/face02.avif" alt="Person 2"></center>
         <h2>Gjin Prelvukaj</h2>
         <p>Bosnia</p>
         <center><a href="chatDetails.php"><button id="chat" style="width: auto; background-color: #1BBC9B; padding: 10px 20px; color: white; border-radius: 5px; margin-top: 10px;">Chat Here</button></a></center>

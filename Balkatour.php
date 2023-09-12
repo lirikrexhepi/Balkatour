@@ -40,7 +40,7 @@ unset($_SESSION['user']);
             style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
             <div style="display: block;">
               <p class="section-subtitle2 testB">Explore Balkan</p>
-              <h2 class="hero-title2">Want to know more about BalkaTour ?</h2>
+              <h2 class="hero-title2">Your solution to traveling.</h2>
             </div>
             <img src="./assets/images/man.png"
               style="height: 330px; padding-top: 30px;" alt>
@@ -52,33 +52,18 @@ unset($_SESSION['user']);
 
     <section class="section about">
         <div class="container">
-
           <div class="about-content">
-
             <p class="section-subtitle">About BalkaTour</p>
-
-            <h2 class="h2 section-title">Explore all tour of the balkan with us.</h2>
-
             <ul class="about-list">
-
               <li class="about-item">
-
-               
-
                 <div class="about-item-content">
-                  <h3 class="h3 about-item-title">BalkaTour </h3>
-
                   <p class="about-item-text">
-                  Say goodbye to generic tourist traps. We're here to guide you towards authentic experiences that will create lasting memories.
+                    As a result of the increasing number of tourists visiting the Balkans, we as a team of programmers decided to establish a website where you can get everything you need in one place, including travel, packages, transportation, hotels, stores, and so on. Our app will be available soon on the Apple and Google Play stores.
                   </p>
                 </div>
-
               </li>
-
             </ul>
-
-            <a href="#" class="btn btn-primary">Begin Your Journey</a>
-
+            <a href="packetges.php"><button class="button-pck">Begin your journey</button></a>
           </div>
 
           <figure class="about-banner">
@@ -89,8 +74,10 @@ unset($_SESSION['user']);
       </section>
 
 
-      <h1 id="down" class="section-subtitle">WHY   CHOOSE    US</h1>
-      <section id="chooseUs">	
+      <!-- <center>
+            <p class="section-subtitle" style="padding-top: 30px;">Why choose us ?</p>
+        </center>
+ <section id="chooseUs">	
 <article class="CU">
 		<img class="zvogloj" src="./assets/images/About Us/rocket.png">
 		<center><h1 >Discover</h1></center>
@@ -109,7 +96,7 @@ unset($_SESSION['user']);
 		<center><h1 >Comprehensive</h1></center>
 		<center><p >Explore, dine, and stay – all in one place, making travel planning a breeze.</p></center>
 	</article>
-</section >
+</section > -->
 
 <?php include 'footer.php'; ?>
 

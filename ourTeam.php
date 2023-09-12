@@ -44,8 +44,7 @@ unset($_SESSION['user']);
     </div>
 
     <center>
-      <p class="section-subtitle" style="padding-top: 30px;">Our Team of
-        Developers</p>
+      <p class="section-subtitle" style="padding-top: 30px;">For tourists from Programmers</p>
     </center>
     <br><br>
     <div class="row" style="display: flex; justify-content: space-around;align-items:flex-start;flex-wrap:  wrap;">
@@ -58,31 +57,20 @@ unset($_SESSION['user']);
           <p class="designation">Team Leader, Developer & Co Founder</p>
         </div>
       </div>
+     
       <!-- Second Div -->
-      <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
-        <div class="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt>
-          <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
-        </div>
-        <div class="single_advisor_details_info">
-          <h4>Edonis Bislimi</h4>
-          <p class="designation">Developer & Co Founder</p>
-        </div>
-      </div>
-      <!-- Third Div -->
-
       <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
         <div class="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt>
-          <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a  href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
+          <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
         </div>
-        
+
         <div class="single_advisor_details_info">
-          <h4>Gjin Prelvukaj <h4>
+          <h4>Vesa Susuri<h4>
           <p class="designation">Developer & Co Founder</p>
         </div>
       </div>
-  </div>
-  
-  <div class="row" style="display: flex; justify-content: space-around;align-items:flex-start;flex-wrap:  wrap;">
+
+      <!-- Third Div -->
       <div class="single_advisor_profile wow fadeInUp"data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
         <div class="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt>
           <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
@@ -93,14 +81,28 @@ unset($_SESSION['user']);
           <p class="designation">Developer & Co Founder</p>
         </div>
       </div>
+  </div>
+  
+  <div class="row" style="display: flex; justify-content: space-around;align-items:flex-start;flex-wrap:  wrap;">
+      
+      
+      <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+        <div class="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt>
+          <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
+        </div>
+        <div class="single_advisor_details_info">
+          <h4>Edonis Bislimi</h4>
+          <p class="designation">Developer & Co Founder</p>
+        </div>
+      </div>
       
       <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
         <div class="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt>
-          <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
+          <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a  href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
         </div>
-
+        
         <div class="single_advisor_details_info">
-          <h4>Vesa Susuri<h4>
+          <h4>Gjin Prelvukaj <h4>
           <p class="designation">Developer & Co Founder</p>
         </div>
       </div>

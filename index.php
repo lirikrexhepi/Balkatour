@@ -158,7 +158,7 @@ if (isset($_POST['logout'])) {
       <!-- End Destination Section -->
 
       <!-- About us start -->
-      <br><br>
+
       <section class="section about">
         <div class="container">
 
@@ -233,7 +233,7 @@ if (isset($_POST['logout'])) {
 
       <!-- About Us end -->
       <!-- Tours -->
-      <br><br><br>
+
       <section class="section popular">
         <div class="container">
 
