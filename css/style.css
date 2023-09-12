@@ -1955,3 +1955,14 @@ display: flex;
   	}
 
 }
+
+#edonisi{
+  height: 520px;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+#liriki{
+  height: 520px;
+}

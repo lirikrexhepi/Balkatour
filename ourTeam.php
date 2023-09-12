@@ -50,8 +50,8 @@ unset($_SESSION['user']);
     <br><br>
     <div class="row" style="display: flex; justify-content: space-around;align-items:flex-start;flex-wrap:  wrap;">
       <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-        <div class="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt>
-          <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
+        <div class="advisor_thumb" id="liriki"><img src="assets/images/ourTeam/liriki.jpg" alt>
+          <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a><i class="fa fa-twitter"></i></a><a href="https://www.linkedin.com/in/lirik-rexhepi-700511240"><i class="fa fa-linkedin"></i></a></div>
         </div>
         <div class="single_advisor_details_info">
           <h4>Lirik Rexhepi</h4>
@@ -60,8 +60,8 @@ unset($_SESSION['user']);
       </div>
       <!-- Second Div -->
       <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
-        <div class="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt>
-          <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
+        <div class="advisor_thumb" id="edonisi"><img src="assets/images/ourTeam/edonisi.jpg" alt>
+          <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="https://www.linkedin.com/in/edonis-bislimi-00b73925a"><i class="fa fa-linkedin"></i></a></div>
         </div>
         <div class="single_advisor_details_info">
           <h4>Edonis Bislimi</h4>
@@ -72,7 +72,7 @@ unset($_SESSION['user']);
 
       <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
         <div class="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt>
-          <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a  href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
+          <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a  href="#"><i class="fa fa-twitter"></i></a><a href="https://www.linkedin.com/in/gjin-prelvukaj-3bab5b23a"><i class="fa fa-linkedin"></i></a></div>
         </div>
         
         <div class="single_advisor_details_info">
@@ -84,8 +84,8 @@ unset($_SESSION['user']);
   
   <div class="row" style="display: flex; justify-content: space-around;align-items:flex-start;flex-wrap:  wrap;">
       <div class="single_advisor_profile wow fadeInUp"data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-        <div class="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt>
-          <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
+        <div class="advisor_thumb"><img src="assets/images/ourTeam/learti.jpg" alt>
+          <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="https://www.linkedin.com/in/leart-ramadani-47981125a"><i class="fa fa-linkedin"></i></a></div>
         </div>
         
         <div class="single_advisor_details_info">
@@ -95,8 +95,8 @@ unset($_SESSION['user']);
       </div>
       
       <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
-        <div class="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt>
-          <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
+        <div class="advisor_thumb"><img src="assets/images/ourTeam/vesa.jpg" alt>
+          <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="https://www.linkedin.com/in/vesa-susuri-b02345229/"><i class="fa fa-linkedin"></i></a></div>
         </div>
 
         <div class="single_advisor_details_info">
